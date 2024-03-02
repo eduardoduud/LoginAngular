@@ -1,13 +1,23 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {Title} from "@angular/platform-browser";
+import {LoginComponent} from "./ui/external/login/login.component";
+import {MatDialogModule} from "@angular/material/dialog";
+import {ModalComponent} from "./ui/shared/components/modal/modal.component";
 
 @Component({
-  selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  selector: 'login-root',
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  imports: [
+    LoginComponent,
+    MatDialogModule,
+    ModalComponent
+  ]
 })
+
 export class AppComponent {
-  title = 'first-angular';
+  title = 'login app';
+  constructor(private titleService: Title) {
+    this.titleService.setTitle(this.title);
+  }
 }

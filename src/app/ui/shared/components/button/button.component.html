@@ -1,0 +1,29 @@
+<div class="flex items-center">
+  <button (click)="onClicked($event)"
+          [disabled]="isDisabled"
+          class="flex flex-row font-loginSans border-0 place-content-center gap-x-spaceSmall w-full rounded hover:bg-lBlue-300 active:bg-lBlue-900"
+          [ngClass]="{'cursor-not-allowed disabled': isDisabled,
+                      'bg-lBlue-100': isPrimary,
+                      'bg-lBlue-300': isSecondary,
+                      'bg-lBlue-900': isTertiary,
+                      'bg-transparent': isTertiary}">
+    <div *ngIf="icon && isIconLeft"
+         [ngClass]="{'text-lBlack-900': isPrimary,
+                     'text-lBlack-700': isSecondary,
+                     'text-lBlue-100': isTertiary}">
+      <app-icon [type]="icon"></app-icon>
+    </div>
+    <div *ngIf="text"
+         [ngClass]="{'text-lBlack-900 font-normal': isPrimary,
+                     'text-lBlack-700 font-semiBold': isSecondary,
+                     'text-lBlue-100 font-bold': isTertiary}">
+      <span>{{ text }}</span>
+    </div>
+    <div *ngIf="icon && isIconRight"
+         [ngClass]="{'text-lBlack-900': isPrimary,
+                     'text-lBlue-700': isSecondary,
+                     'text-lBlack-100': isTertiary}">
+      <app-icon [type]="icon"></app-icon>
+    </div>
+  </button>
+</div>

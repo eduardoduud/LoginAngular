@@ -1,0 +1,42 @@
+<!-- modal-content.component.html -->
+<div class="modal-content">
+  <h2>Cadastro</h2>
+  <form>
+    <div>
+      <div>
+        <label for="usuario">Usuário</label>
+      </div>
+      <div>
+        <input type="text" id="usuario" name="usuario" class="form-control" required>
+      </div>
+    </div>
+    <div>
+      <div>
+        <label for="senha">Senha</label>
+      </div>
+      <div>
+        <input type="password" id="senha" name="senha" class="form-control" required>
+      </div>
+    </div>
+    <div>
+      <label for="dataNascimento">Data de Nascimento</label>
+      <div>
+        <input class="w-10" type="number" id="dia" placeholder="Dia" required>
+        <select id="mes" name="mes" class="form-control mr-2" style="width: auto;" required>
+          <option value="" disabled selected>Mês</option>
+          <option *ngFor="let mes of meses" [value]="mes">{{ mes }}</option>
+        </select>
+        <input class="w-10" type="number" id="ano" placeholder="Ano" required>
+      </div>
+    </div>
+    <div>
+      <div>
+        <label for="email">E-mail</label>
+      </div>
+      <div>
+        <input type="email" id="email" name="email" required>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Cadastrar</button>
+  </form>
+</div>
