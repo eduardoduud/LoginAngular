@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import {Title} from "@angular/platform-browser";
-import {LoginComponent} from "./ui/external/login/login.component";
-import {MatDialogModule} from "@angular/material/dialog";
-import {ModalComponent} from "./ui/shared/components/modal/modal.component";
+import { LoginComponent } from "./ui/external/login/login.component";
+import { MatDialogModule } from "@angular/material/dialog";
+import { ModalComponent } from "./ui/shared/components/modal/modal.component";
 
 @Component({
   standalone: true,
@@ -11,7 +11,7 @@ import {ModalComponent} from "./ui/shared/components/modal/modal.component";
   imports: [
     LoginComponent,
     MatDialogModule,
-    ModalComponent
+    ModalComponent,
   ]
 })
 

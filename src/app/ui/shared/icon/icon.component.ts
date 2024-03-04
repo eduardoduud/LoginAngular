@@ -7,7 +7,7 @@ import {SvgIconComponent} from "angular-svg-icon";
 @Component({
   standalone: true,
   selector: 'app-icon',
-  template: `<svg-icon class="flex h-lIconLarge w-lIconLarge items-center"
+  template: `<svg-icon
                        [src]="iconPath"
                        [svgClass]="block"
                        [applyClass]="true">

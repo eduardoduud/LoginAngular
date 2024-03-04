@@ -1,13 +1,14 @@
-<div class="flex flex-col bg-lBlack-900 justify-center items-center h-screen">
-  <h1 class="font-loginSans text-lBlue-100 text-4xl font-bold">Hello, KITSAMINHO!!!</h1>
+<div class="bg-lBlack-900 items-center h-screen">
+  <h1 class="flex justify-center font-loginSans text-lBlue-100 text-5xl font-bold">Hello, World!!</h1>
   <login-app-button [type]="'primary'"
-                    [text]="'botaozin'"
+                    [text]="'Button 1'"
                     [icon]="'login'"
-                    [isIconRight]="true">
+                    [isIconLeft]="true">
   </login-app-button>
   <login-app-button [type]="'secondary'"
-                    [text]="'botaozin DOIS'"
+                    [text]="'Button 2'"
                     [icon]="'reload'"
                     [isIconRight]="true">
   </login-app-button>
+  <app-modal></app-modal>
 </div>

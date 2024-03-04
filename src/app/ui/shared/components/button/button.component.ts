@@ -8,7 +8,6 @@ import {IconComponent} from "../../icon/icon.component";
   imports: [
     NgIf,
     NgClass,
-    NgClass,
     IconComponent
   ],
   templateUrl: './button.component.html'
@@ -22,6 +21,7 @@ export class ButtonComponent implements OnInit{
   @Input({ required: true }) type: string = 'primary' || 'secondary' || 'tertiary';
   @Input() icon = '';
   @Input() text = '';
+  @Input() size = '';
 
   @Output() clicked = new EventEmitter<Event>();
 

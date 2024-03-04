@@ -16,7 +16,8 @@ export class ModalComponent {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(ModalContentComponent, {
-      width: '250px'
+      width: '500px',
+      height: '740px'
     });
 
     dialogRef.afterClosed().subscribe(result => {

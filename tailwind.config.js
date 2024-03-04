@@ -25,10 +25,17 @@ module.exports = {
           100: '#14FFEC',
           300: '#25B5A8',
           900: '#0D7377'
+        },
+        cinzaTwitch:{
+          500: '#18181b'
+        },
+        brancoTwitch:{
+          500: '#f7f7f8'
         }
       },
       spacing: {
-        spaceSmall: '.5rem' /*8px*/,
+        lxSmall: '.25rem' /*8px*/,
+        lSpaceSmall: '.5rem' /*8px*/,
         lIconSmall: '0.75rem'/*12px*/,
         lIconDefault: '1rem'/*16px*/,
         lIconLarge: '1.125rem'/*18px*/,

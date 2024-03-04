@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import {CommonModule} from "@angular/common";
 import {FormsModule} from "@angular/forms";
+import {ButtonComponent} from "../../button/button.component";
+import {MatButton} from "@angular/material/button";
 
 @Component({
   selector: 'app-modal-content',
@@ -8,7 +10,9 @@ import {FormsModule} from "@angular/forms";
   standalone: true,
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    ButtonComponent,
+    MatButton
   ],
 })
 export class ModalContentComponent {

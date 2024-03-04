@@ -1,14 +1,14 @@
-<div class="flex items-center">
+<div class="flex justify-center">
   <button (click)="onClicked($event)"
           [disabled]="isDisabled"
-          class="flex flex-row font-loginSans border-0 place-content-center gap-x-spaceSmall w-full rounded hover:bg-lBlue-300 active:bg-lBlue-900"
+          class="font-loginSans flex justify-center items-center gap-x-lxSmall rounded hover:bg-lBlue-300 active:bg-lBlue-900"
           [ngClass]="{'cursor-not-allowed disabled': isDisabled,
                       'bg-lBlue-100': isPrimary,
                       'bg-lBlue-300': isSecondary,
                       'bg-lBlue-900': isTertiary,
                       'bg-transparent': isTertiary}">
     <div *ngIf="icon && isIconLeft"
-         [ngClass]="{'text-lBlack-900': isPrimary,
+         [ngClass]="{'text-lBlack-900 h-lIconLarge w-lIconLarge': isPrimary,
                      'text-lBlack-700': isSecondary,
                      'text-lBlue-100': isTertiary}">
       <app-icon [type]="icon"></app-icon>

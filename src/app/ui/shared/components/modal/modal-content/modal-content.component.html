@@ -1,42 +1,41 @@
-<!-- modal-content.component.html -->
-<div class="modal-content">
-  <h2>Cadastro</h2>
-  <form>
+<div class="modal-content bg-cinzaTwitch-500 w-full h-full p-5">
+  <h4 class="flex justify-center text-brancoTwitch-500 text-3xl">Junte-se hoje à Twitch</h4>
+  <form class="mt-4">
     <div>
       <div>
-        <label for="usuario">Usuário</label>
+        <label class="text-brancoTwitch-500" for="usuario">Usuário</label>
       </div>
-      <div>
-        <input type="text" id="usuario" name="usuario" class="form-control" required>
+      <div class="mt-1">
+        <input class="w-full rounded" type="text" id="usuario" name="usuario" required>
       </div>
     </div>
-    <div>
+    <div class="mt-4">
       <div>
-        <label for="senha">Senha</label>
+        <label class="text-brancoTwitch-500" for="senha">Senha</label>
       </div>
-      <div>
-        <input type="password" id="senha" name="senha" class="form-control" required>
+      <div class="mt-1">
+        <input class="w-full rounded" type="password" id="senha" name="senha" required>
       </div>
     </div>
-    <div>
-      <label for="dataNascimento">Data de Nascimento</label>
-      <div>
-        <input class="w-10" type="number" id="dia" placeholder="Dia" required>
-        <select id="mes" name="mes" class="form-control mr-2" style="width: auto;" required>
+    <div class="mt-4">
+      <label class="text-brancoTwitch-500">Data de Nascimento</label>
+      <div class="flex justify-between mt-1">
+        <input class="w-1/5 rounded" type="number" id="dia" placeholder="Dia" required>
+        <select id="mes" name="mes" class="w-2/5 rounded" required>
           <option value="" disabled selected>Mês</option>
           <option *ngFor="let mes of meses" [value]="mes">{{ mes }}</option>
         </select>
-        <input class="w-10" type="number" id="ano" placeholder="Ano" required>
+        <input class="w-1/5 rounded" type="number" id="ano" placeholder="Ano" required>
       </div>
     </div>
-    <div>
+    <div class="mt-4">
       <div>
-        <label for="email">E-mail</label>
+        <label class="text-brancoTwitch-500" for="email">E-mail</label>
       </div>
-      <div>
-        <input type="email" id="email" name="email" required>
+      <div class="mt-1">
+        <input class="w-full rounded" type="email" id="email" name="email" required>
       </div>
     </div>
-    <button type="submit" class="btn btn-primary">Cadastrar</button>
+    <button mat-raised-button color="primary" class="flex justify-center w-full mt-8">Cadastrar-se</button>
   </form>
 </div>
