@@ -3,7 +3,11 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "Courier New, monospace";
+  font-family: 'Inter', sans-serif;
+}
+
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, .85);
 }
 
 /* Chrome, Safari, Edge, Opera */
