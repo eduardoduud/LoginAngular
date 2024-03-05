@@ -7,9 +7,8 @@ import {SvgIconComponent} from "angular-svg-icon";
 @Component({
   standalone: true,
   selector: 'app-icon',
-  template: `<svg-icon
-                       [src]="iconPath"
-                       [svgClass]="block"
+  template: `<svg-icon [src]="iconPath"
+                       [svgClass]="svgClass"
                        [applyClass]="true">
              </svg-icon>`,
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -18,7 +17,7 @@ import {SvgIconComponent} from "angular-svg-icon";
 
 export class IconComponent {
   iconPath = '';
-  @Input() block?: string;
+  @Input() svgClass?: string;
   @Input() set type(type:string) {
     this.iconPath = `assets/images/${type}.svg`
   };
