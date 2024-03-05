@@ -1,18 +1,17 @@
 import { Component } from '@angular/core';
-import {CommonModule} from "@angular/common";
-import {FormsModule} from "@angular/forms";
-import {ButtonComponent} from "../../button/button.component";
-import {MatButton} from "@angular/material/button";
+import { CommonModule } from "@angular/common";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { ButtonComponent } from "../../button/button.component";
 
 @Component({
-  selector: 'app-modal-content',
+  selector: 'login-app-modal-content',
   templateUrl: './modal-content.component.html',
   standalone: true,
   imports: [
     CommonModule,
     FormsModule,
     ButtonComponent,
-    MatButton
+    ReactiveFormsModule,
   ],
 })
 export class ModalContentComponent {

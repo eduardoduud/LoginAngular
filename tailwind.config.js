@@ -3,7 +3,7 @@ module.exports = {
   content: ["./src/**/*.{html,ts}"],
   theme: {
     fontFamily: {
-      'loginSans': ['Trebuchet MS, sans-serif']
+      'loginSans': ['Inter, sans-serif']
     },
     fontWeight: {
       normal: '300',
@@ -27,7 +27,9 @@ module.exports = {
           900: '#0D7377'
         },
         cinzaTwitch:{
-          500: '#18181b'
+          900: '#18181b',
+          200: '#67676B',
+          100: '#939399'
         },
         brancoTwitch:{
           500: '#f7f7f8'
@@ -39,6 +41,10 @@ module.exports = {
         lIconSmall: '0.75rem'/*12px*/,
         lIconDefault: '1rem'/*16px*/,
         lIconLarge: '1.125rem'/*18px*/,
+      },
+      boxShadow: {
+        lBorder: 'inset 0px 0px 0px 2px rgba(20, 255, 236, 1), 0px 0px 0px 2px rgba(20, 255, 236, 1)',
+        lHover: 'inset 0px 0px 0px 2px rgba(103, 103, 107, 1)'
       }
     },
   },
