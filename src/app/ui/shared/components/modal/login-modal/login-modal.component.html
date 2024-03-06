@@ -1,0 +1,32 @@
+<div class="flex flex-row p-small bg-white rounded-sm shadow-md shadow-lGreen-400 z-20 fixed">
+  <div class="flex flex-col gap-y-spaceSmall">
+    <div class="flex flex-row justify-between">
+      <div class="flex items-center gap-x-spaceSmall">
+        <app-icon class="text-center text-lBlue-800"
+                  type="reload"
+                  [svgClass]="'h-lIconDefault w-lIconDefault'">
+        </app-icon>
+        <div>
+          <span class="text-center text-lBlue-800">Sign Up</span>
+        </div>
+      </div>
+      <login-app-button [type]="'secondary'"
+                        [text]="'X'"
+                        [isIconRight]="true"
+                        (clicked)="closeModal()">
+      </login-app-button>
+    </div>
+    <div class="flex gap-spaceSmall items-center justify-end">
+      <login-app-button [type]="'secondary'"
+                        [text]="'Confirm'"
+                        [icon]="'reload'"
+                        [isIconRight]="true">
+      </login-app-button>
+      <login-app-button [type]="'secondary'"
+                        [text]="'Close'"
+                        [icon]="'reload'"
+                        [isIconRight]="true">
+      </login-app-button>
+    </div>
+  </div>
+</div>
