@@ -17,6 +17,9 @@ module.exports = {
       colors: {
         primaryButton: '',
         secondaryButton: '',
+        lWhite: {
+          200: '#F4F9FD'
+        },
         lBlack:{
           700: '#323232',
           900: '#212121'
@@ -24,27 +27,45 @@ module.exports = {
         lBlue:{
           100: '#14FFEC',
           300: '#25B5A8',
-          900: '#0D7377'
+          600: '#0D7377',
+          800: '#0B141B'
+        },
+        lGreen: {
+          400: '#21C063'
         },
         cinzaTwitch:{
-          900: '#18181b',
+          100: '#939399',
           200: '#67676B',
-          100: '#939399'
+          900: '#18181b'
         },
         brancoTwitch:{
           500: '#f7f7f8'
         }
       },
+      padding: {
+        xSmall: '.25rem' /*4px*/,
+        small: '.625rem' /*10px*/
+      },
       spacing: {
-        lxSmall: '.25rem' /*8px*/,
-        lSpaceSmall: '.5rem' /*8px*/,
-        lIconSmall: '0.75rem'/*12px*/,
-        lIconDefault: '1rem'/*16px*/,
-        lIconLarge: '1.125rem'/*18px*/,
+        spaceXSmall: '.25rem' /*4px*/,
+        spaceSmall: '.5rem' /*8px*/
       },
       boxShadow: {
         lBorder: 'inset 0px 0px 0px 2px rgba(20, 255, 236, 1), 0px 0px 0px 2px rgba(20, 255, 236, 1)',
         lHover: 'inset 0px 0px 0px 2px rgba(103, 103, 107, 1)'
+      },
+      height: {
+        lIconSmall: '0.75rem'/*12px*/,
+        lIconDefault: '1rem'/*16px*/,
+        lIconLarge: '1.125rem'/*18px*/,
+      },
+      width:{
+        lIconSmall: '0.75rem'/*12px*/,
+        lIconDefault: '1rem'/*16px*/,
+        lIconLarge: '1.125rem'/*18px*/,
+      },
+      maxWidth: {
+        lMaxHeaderW: `calc(100vw / 4)`
       }
     },
   },

@@ -47,7 +47,6 @@ export class ButtonComponent implements OnInit{
   onClicked(event: Event): void {
     if(!this.isDisabled){
       this.clicked.emit(event);
-      console.log('clicadinho');
       event.stopPropagation();
     }
   }
