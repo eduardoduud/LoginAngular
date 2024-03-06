@@ -1,0 +1,20 @@
+<div class="flex flex-row shadow shadow-lGreen-400 bg-lGreen-400 justify-end p-small">
+  <div class="flex justify-between p-xSmall max-w-lMaxHeaderW gap-x-spaceSmall">
+    <div>
+      <login-app-button [type]="'primary'"
+                        [text]="'Sign In'"
+                        [icon]="'login'"
+                        [isIconLeft]="true"
+                        (clicked)="openModal()">
+      </login-app-button>
+    </div>
+    <div>
+      <login-app-login></login-app-login>
+    </div>
+  </div>
+</div>
+
+<ng-container *ngIf="isLoginModalVisible">
+  <login-app-login-modal (closed)="closeModal()">
+  </login-app-login-modal>
+</ng-container>
