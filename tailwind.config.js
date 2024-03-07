@@ -18,7 +18,9 @@ module.exports = {
         primaryButton: '',
         secondaryButton: '',
         lWhite: {
-          200: '#F4F9FD'
+          200: '#F4F9FD',
+          300: '#f7f7f8',
+          400: '#C3C6C9'
         },
         lBlack:{
           700: '#323232',
@@ -27,11 +29,13 @@ module.exports = {
         lBlue:{
           100: '#14FFEC',
           300: '#25B5A8',
-          600: '#0D7377',
+          600: '#1F384D',
+          700: '#182B3B',
           800: '#0B141B'
         },
         lGreen: {
-          400: '#21C063'
+          400: '#21C063',
+          500: '#188A47'
         },
         cinzaTwitch:{
           100: '#939399',
@@ -51,7 +55,7 @@ module.exports = {
         spaceSmall: '.5rem' /*8px*/
       },
       boxShadow: {
-        lBorder: 'inset 0px 0px 0px 2px rgba(20, 255, 236, 1), 0px 0px 0px 2px rgba(20, 255, 236, 1)',
+        lBorder: 'inset 0px 0px 0px 0.5px rgba(33, 192, 99, 1), 0px 0px 0px 2px rgba(33, 192, 99, 1)',
         lHover: 'inset 0px 0px 0px 2px rgba(103, 103, 107, 1)'
       },
       height: {
