@@ -1,4 +1,4 @@
-<dialog class="w-[31rem] h-[36rem] rounded-md bg-cinzaTwitch-900 backdrop-opacity-30" #dialog>
+<div class="w-[31rem] h-[36rem] rounded-md bg-cinzaTwitch-900 backdrop-opacity-30" #dialog>
   <div class="modal-content bg-cinzaTwitch-900 w-full h-full p-5">
     <h4 class="flex justify-center text-brancoTwitch-500 text-3xl font-bold font-loginSans">Junte-se hoje à Twitch</h4>
     <form class="pt-4">
@@ -62,6 +62,9 @@
       <login-app-button [type]="'primary'" [text]="'Registrar-se'"></login-app-button>
     </form>
   </div>
-</dialog>
-
-<button class="text-brancoTwitch-500" (click)="dialog.showModal()">Open modal</button>
+  <login-app-button [type]="'secondary'"
+                    [text]="'X'"
+                    [isIconRight]="true"
+                    (clicked)="this.modalService.closeModal()">
+  </login-app-button>
+</div>

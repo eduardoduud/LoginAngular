@@ -13,7 +13,7 @@
       <login-app-button [type]="'secondary'"
                         [text]="'X'"
                         [isIconRight]="true"
-                        (clicked)="closeModal()">
+                        (clicked)="this.modalService.closeModal()">
       </login-app-button>
     </div>
     <div class="flex gap-spaceSmall items-center justify-end">
