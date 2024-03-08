@@ -1,32 +1,59 @@
-<div class="flex flex-row p-small bg-white rounded-sm shadow-md shadow-lGreen-400 z-20">
-  <div class="flex flex-col gap-y-spaceSmall">
-    <div class="flex flex-row justify-between">
-      <div class="flex items-center gap-x-spaceSmall">
-        <app-icon class="text-center text-lBlue-800"
-                  type="reload"
-                  [svgClass]="'h-lIconDefault w-lIconDefault'">
-        </app-icon>
-        <div>
-          <span class="text-center text-lBlue-800">Sign Up</span>
-        </div>
-      </div>
-      <login-app-button [type]="'secondary'"
-                        [text]="'X'"
-                        [isIconRight]="true"
-                        (clicked)="this.modalService.closeModal()">
-      </login-app-button>
-    </div>
-    <div class="flex gap-spaceSmall items-center justify-end">
-      <login-app-button [type]="'secondary'"
-                        [text]="'Confirm'"
-                        [icon]="'reload'"
-                        [isIconRight]="true">
-      </login-app-button>
-      <login-app-button [type]="'secondary'"
-                        [text]="'Close'"
-                        [icon]="'reload'"
-                        [isIconRight]="true">
-      </login-app-button>
+<div class="flex flex-col w-full h-full p-biggest bg-cinzaTwitch-900 gap-y-spaceBig">
+  <div class="flex flex-row justify-center">
+    <span class="font-loginSans font-bold text-brancoTwitch-500 text-3xl">Entrar no site</span>
+    <div class="absolute end-2 top-2 cursor-pointer hover:bg-lBlack-700 rounded">
+      <app-icon type="closeX"
+                svgClass="w-lIconLarger h-lIconLarger"
+
+                (click)="this.modalService.closeModal()">
+      </app-icon>
     </div>
   </div>
+    <form class="flex flex-col gap-y-spaceDefault"
+          [formGroup]="loginForm">
+      <div class="flex flex-col gap-y-spaceXSmall">
+        <span class="flex text-brancoTwitch-500 font-bold">Usuário</span>
+        <input class="flex items-center p-small w-full border rounded border-cinzaTwitch-200 bg-transparent text-lWhite-200
+                      hover:shadow-lHover focus:shadow-lBorder focus:border-lGreen-400 focus:outline-none"
+               type="text"
+               id="usuario"
+               name="usuario"
+               formControlName="usuario"
+               required>
+      </div>
+
+      <div class="flex flex-col gap-y-spaceXSmall">
+        <span class="text-brancoTwitch-500 font-bold">Senha</span>
+        <div class="flex items-center">
+          <div class="w-full relative">
+            <input class="p-small w-full rounded border border-cinzaTwitch-200 bg-transparent text-lWhite-200 hover:shadow-lHover focus:border-lGreen-400 focus:shadow-lBorder focus:outline-none"
+                   type="{{ hidePassword ? 'password' : 'text' }}"
+                   id="senha"
+                   name="senha"
+                   formControlName="senha">
+            <button class="absolute end-2 top-spaceTiny" type="button" (click)="togglePasswordVisibility()">
+              <ng-container *ngIf="hidePassword">
+                <app-icon type="eyeOpen" svgClass="w-lIconDefault h-lIconDefault">
+                </app-icon>
+              </ng-container>
+              <ng-container *ngIf="!hidePassword">
+                <app-icon type="eyeClosed" svgClass="w-lIconDefault h-lIconDefault">
+                </app-icon>
+              </ng-container>
+            </button>
+          </div>
+        </div>
+      </div>
+      <login-app-button (clicked)="this.modalService.closeModal()"
+                        [type]="'secondary'"
+                        [isDisabled]="loginForm.invalid"
+                        [text]="'Entrar'">
+      </login-app-button>
+      <login-app-button [type]="'primary'"
+                        [text]="'Ainda não possui uma conta? Cadastrar-se'"
+                        [textSize]="'text-sm'"
+                        [isBackgroundTransparent]="true"
+                        (clicked)="closeLoginAndOpenRegister()">
+      </login-app-button>
+    </form>
 </div>
