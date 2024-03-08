@@ -8,11 +8,10 @@
                       'bg-lWhite-200 hover:bg-lWhite-400': isTertiary,
                       'bg-transparent hover:bg-cinzaTwitch-200': isBackgroundTransparent}">
     <div *ngIf="icon && isIconLeft"
-         [ngClass]="{'text-lBlue-800': isPrimary,
-                     'text-lGreen-400': isSecondary,
-                     'text-lWhite-200': isTertiary}">
+         [ngClass]="{'text-lWhite-200': isPrimary,
+                     'text-lBlue-800': isSecondary || isTertiary}">
       <app-icon [type]="icon"
-                [svgClass]="'text-white h-lIconDefault w-lIconDefault'">
+                [svgClass]="'h-lIconDefault w-lIconDefault'">
       </app-icon>
     </div>
     <div *ngIf="text"
@@ -22,9 +21,8 @@
       <span class="font-loginSans {{textSize}}">{{ text }}</span>
     </div>
     <div *ngIf="icon && isIconRight"
-         [ngClass]="{'text-lBlue-800': isPrimary,
-                     'text-lGreen-400': isSecondary,
-                     'text-lWhite-200': isTertiary}">
+         [ngClass]="{'text-lWhite-200': isPrimary,
+                     'text-lBlue-800': isSecondary || isTertiary}">
       <app-icon [type]="icon"
                 [svgClass]="'h-lIconDefault w-lIconDefault'">
       </app-icon>
