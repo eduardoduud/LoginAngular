@@ -1,32 +1,44 @@
-<div class="flex flex-row p-small bg-white rounded-sm shadow-md shadow-lGreen-400 z-20">
-  <div class="flex flex-col gap-y-spaceSmall">
-    <div class="flex flex-row justify-between">
-      <div class="flex items-center gap-x-spaceSmall">
-        <app-icon class="text-center text-lBlue-800"
-                  type="reload"
-                  [svgClass]="'h-lIconDefault w-lIconDefault'">
-        </app-icon>
-        <div>
-          <span class="text-center text-lBlue-800">Sign Up</span>
-        </div>
-      </div>
-      <login-app-button [type]="'secondary'"
+<div class="modal-content bg-cinzaTwitch-900 w-full h-full p-10">
+    <h4 class="flex justify-center text-brancoTwitch-500 text-3xl font-bold font-loginSans">Entrar no site</h4>
+    <div class="absolute end-2 top-2">
+      <login-app-button [type]="'primary'"
                         [text]="'X'"
-                        [isIconRight]="true"
+                        [isBackgroundTransparent]="true"
                         (clicked)="this.modalService.closeModal()">
       </login-app-button>
     </div>
-    <div class="flex gap-spaceSmall items-center justify-end">
-      <login-app-button [type]="'secondary'"
-                        [text]="'Confirm'"
-                        [icon]="'reload'"
-                        [isIconRight]="true">
+    <form class="pt-4">
+      <div>
+        <div>
+          <label class="text-brancoTwitch-500 font-bold" for="usuario">Usuário</label>
+        </div>
+        <div class="pt-1">
+          <input class="w-full pl-2 rounded bg-cinzaTwitch-900 text-brancoTwitch-500 border border-cinzaTwitch-200
+                    hover:shadow-lHover focus:shadow-lBorder focus:border-lGreen-400 focus:outline-none"
+                 type="text" id="usuario" name="usuario" required>
+        </div>
+      </div>
+      <div class="py-4">
+        <div>
+          <label class="text-brancoTwitch-500 font-bold" for="senha">Senha</label>
+        </div>
+        <div class="mt-1">
+          <input class="w-full pl-2 rounded bg-cinzaTwitch-900 text-brancoTwitch-500 border border-cinzaTwitch-200
+                    hover:shadow-lHover focus:shadow-lBorder focus:border-lGreen-400 focus:outline-none"
+                 type="password" id="senha" name="senha" required>
+        </div>
+      </div>
+      <login-app-button (clicked)="this.modalService.closeModal()"
+                        [type]="'secondary'"
+                        [text]="'Entrar'">
       </login-app-button>
-      <login-app-button [type]="'secondary'"
-                        [text]="'Close'"
-                        [icon]="'reload'"
-                        [isIconRight]="true">
-      </login-app-button>
-    </div>
-  </div>
+      <div class="py-4">
+        <login-app-button [type]="'primary'"
+                          [text]="'Ainda não possui uma conta? Cadastrar-se'"
+                          [textSize]="'text-sm'"
+                          [isBackgroundTransparent]="true"
+                          (clicked)="closeLoginAndOpenRegister()">
+        </login-app-button>
+      </div>
+    </form>
 </div>

@@ -21,7 +21,7 @@ export class ButtonComponent implements OnInit{
   @Input({ required: true }) type: string = 'primary' || 'secondary' || 'tertiary';
   @Input() icon = '';
   @Input() text = '';
-  @Input() size = '';
+  @Input() textSize = '';
 
   @Output() clicked = new EventEmitter<Event>();
 
