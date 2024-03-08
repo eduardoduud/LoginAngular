@@ -2,8 +2,6 @@ import {ChangeDetectionStrategy, Component, Input} from "@angular/core";
 import {IconModule} from "./icon.module";
 import {SvgIconComponent} from "angular-svg-icon";
 
-// @ts-ignore
-
 @Component({
   standalone: true,
   selector: 'app-icon',
