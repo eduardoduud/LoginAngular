@@ -1,0 +1,18 @@
+<div class="flex flex-row shadow shadow-lGreen-400 bg-lGreen-400 justify-end p-small">
+  <div class="flex justify-between p-xSmall max-w-lMaxHeaderW gap-x-spaceSmall">
+    <div class="flex flex-row">
+      <login-app-button [type]="'primary'"
+                        [text]="'Sign In'"
+                        [icon]="'login'"
+                        [isIconLeft]="true"
+                        (clicked)="openModal(loginModalComponent)">
+      </login-app-button>
+      <login-app-button [type]="'tertiary'"
+                        [text]="'Sign Up'"
+                        [icon]="'reload'"
+                        [isIconRight]="true"
+                        (clicked)="openModal(registerModalComponent)">
+      </login-app-button>
+    </div>
+  </div>
+</div>
