@@ -30,7 +30,8 @@
                    type="{{ hidePassword ? 'password' : 'text' }}"
                    id="senha"
                    name="senha"
-                   formControlName="senha">
+                   formControlName="senha"
+                   required>
             <button class="absolute end-2 top-spaceTiny" type="button" (click)="togglePasswordVisibility()">
               <ng-container *ngIf="hidePassword">
                 <app-icon type="eyeOpen" svgClass="w-lIconDefault h-lIconDefault">
