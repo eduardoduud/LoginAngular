@@ -13,10 +13,4 @@ import {NgIf} from "@angular/common";
     NgIf
   ]
 })
-export class HomeComponent {
-  isLoginModalVisible = false;
-
-  toggleCreateAccountMenu(): void {
-    this.isLoginModalVisible = !this.isLoginModalVisible;
-  }
-}
+export class HomeComponent {}
