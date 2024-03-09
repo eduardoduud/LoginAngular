@@ -4,6 +4,7 @@ import { ButtonComponent } from "../button/button.component";
 import { LoginModalComponent} from "../modal/login-modal/login-modal.component";
 import { ModalService } from "../../../../services/modal.service";
 import { RegisterModalComponent } from "../modal/register-modal/register-modal.component";
+import {IconComponent} from "../../icon/icon.component";
 
 @Component({
   selector: 'login-app-header',
@@ -12,7 +13,8 @@ import { RegisterModalComponent } from "../modal/register-modal/register-modal.c
     LoginComponent,
     ButtonComponent,
     LoginModalComponent,
-    RegisterModalComponent
+    RegisterModalComponent,
+    IconComponent
   ],
   templateUrl: './header.component.html'
 })
