@@ -1,4 +1,4 @@
 export enum RoutePaths {
   Default = '',
-  Login = 'login'
+  Login = 'login',
 }

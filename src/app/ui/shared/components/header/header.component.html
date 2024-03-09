@@ -1,24 +1,29 @@
-<div class="flex flex-row px-default py-small shadow shadow-lGreen-400 bg-lGreen-400 items-center justify-center">
+<div
+  class="flex flex-row px-default py-small shadow shadow-lGreen-400 bg-lGreen-400 items-center justify-center"
+>
   <div class="flex items-center justify-start w-full">
-    <app-icon type="reload"
-              [svgClass]="'h-lIconDefault w-lIconDefault'">
+    <app-icon type="reload" [svgClass]="'h-lIconDefault w-lIconDefault'">
     </app-icon>
   </div>
   <div class="flex items-center justify-center w-full">
     <span>WELCOME</span>
   </div>
   <div class="flex flex-row gap-x-spaceBig justify-end w-full">
-    <login-app-button [type]="'primary'"
-                      [text]="'Sign In'"
-                      [icon]="'login'"
-                      [isIconLeft]="true"
-                      (clicked)="openModal(loginModalComponent)">
+    <login-app-button
+      [type]="'primary'"
+      [text]="'Sign In'"
+      [icon]="'login'"
+      [isIconLeft]="true"
+      (clicked)="openModal(loginModalComponent)"
+    >
     </login-app-button>
-    <login-app-button [type]="'primary'"
-                      [text]="'Sign Up'"
-                      [icon]="'reload'"
-                      [isIconRight]="true"
-                      (clicked)="openModal(registerModalComponent)">
+    <login-app-button
+      [type]="'primary'"
+      [text]="'Sign Up'"
+      [icon]="'reload'"
+      [isIconRight]="true"
+      (clicked)="openModal(registerModalComponent)"
+    >
     </login-app-button>
   </div>
 </div>

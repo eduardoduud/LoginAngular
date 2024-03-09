@@ -37,11 +37,19 @@ module.exports = {
     '**/*.svg',
   ],
   rules: {
-    'prettier/prettier': ['error', { endOfLine: 'auto' }],
+    'prettier/prettier': [
+      'error',
+      { endOfLine: 'auto', singleQuote: true, quoteProps: 'consistent' },
+    ],
     '@typescript-eslint/no-unused-vars': 'error',
-    '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
     'linebreak-style': ['error', 'windows'],
-    quotes: ['error', 'single'],
+    quotes: [
+      'error',
+      'single',
+      { avoidEscape: true, allowTemplateLiterals: true },
+    ],
     semi: ['error', 'always'],
+    '@typescript-eslint/no-namespace': 'off',
+    '@typescript-eslint/consistent-type-definitions': 'off',
   },
 };

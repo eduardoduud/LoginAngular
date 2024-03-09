@@ -1,8 +1,7 @@
 import { Route, Routes } from '@angular/router';
-import { LoginComponent } from "./ui/external/login/login.component";
-import {RoutePaths} from "./route-paths";
-import {HomeComponent} from "./ui/external/home/home.component";
-
+import { LoginComponent } from './ui/external/login/login.component';
+import { RoutePaths } from './route-paths';
+import { HomeComponent } from './ui/external/home/home.component';
 
 export interface AppRoute extends Route {
   path?: RoutePaths;
@@ -12,12 +11,12 @@ export interface AppRoute extends Route {
 export const routes: Routes = [
   {
     path: RoutePaths.Default,
-    component: HomeComponent
+    component: HomeComponent,
   },
   {
     path: RoutePaths.Login,
-    component: LoginComponent
-  }
+    component: LoginComponent,
+  },
 ];
 
 export function getBaseUrl(): string {

@@ -1,10 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { ButtonComponent } from "../../button/button.component";
-import { IconComponent } from "../../../icon/icon.component";
-import { ModalService } from "../../../../../services/modal.service";
-import {  FormsModule, FormBuilder, FormGroup, Validators, ReactiveFormsModule  } from "@angular/forms";
-import {  RegisterModalComponent  } from "../register-modal/register-modal.component";
-import {NgIf} from "@angular/common";
+import { ButtonComponent } from '../../button/button.component';
+import { IconComponent } from '../../../icon/icon.component';
+import { ModalService } from '../../../../../services/modal.service';
+import {
+  FormsModule,
+  FormBuilder,
+  FormGroup,
+  Validators,
+  ReactiveFormsModule,
+} from '@angular/forms';
+import { RegisterModalComponent } from '../register-modal/register-modal.component';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'login-app-login-modal',
@@ -17,28 +23,32 @@ import {NgIf} from "@angular/common";
     ReactiveFormsModule,
     NgIf,
   ],
-  templateUrl: './login-modal.component.html'
+  templateUrl: './login-modal.component.html',
 })
 export class LoginModalComponent implements OnInit {
   protected readonly registerModalComponent = RegisterModalComponent;
   protected loginForm!: FormGroup;
   hidePassword: boolean = true;
-  constructor(public modalService: ModalService, private formBuilder: FormBuilder) {}
+  constructor(
+    public modalService: ModalService,
+    private formBuilder: FormBuilder,
+  ) {}
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
       usuario: ['', Validators.minLength(4)],
-      senha: ['', Validators.minLength(8)]
+      senha: ['', Validators.minLength(8)],
     });
-    this.modalService.getModalSubscription().subscribe((modalRef) => {
-      modalRef.afterClosed().subscribe(() => {
-      });
+    this.modalService.getModalSubscription().subscribe(modalRef => {
+      modalRef.afterClosed().subscribe(() => {});
     });
   }
 
   closeLoginAndOpenRegister(): void {
     this.modalService.closeModal();
-    this.modalService.openModal(this.registerModalComponent).subscribe(() => { });
+    this.modalService
+      .openModal(this.registerModalComponent)
+      .subscribe(() => {});
   }
 
   togglePasswordVisibility(): void {
