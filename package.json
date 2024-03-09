@@ -8,13 +8,8 @@
     "lint": "eslint . --ext .ts --ignore-path .eslintignore",
     "format": "prettier --write . --ignore-path .prettierignore",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run format, npm run lint",
-      "pre-push": "npm run test"
-    }
+    "test": "ng test",
+    "prepare": "husky"
   },
   "private": true,
   "dependencies": {
