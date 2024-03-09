@@ -1,0 +1,10 @@
+{
+  "semi": true,
+  "singleQuote": true,
+  "arrowParens": "avoid",
+  "endOfLine": "crlf",
+  "skipStrings": true,
+  "skipComments": true,
+  "skipRegExps": true,
+  "skipTemplates": true
+}
