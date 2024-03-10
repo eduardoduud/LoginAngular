@@ -1,0 +1,9 @@
+/temp.js
+/**/vendor/*.js
+/**/*.js
+/**/*.json
+/**/*.md
+/**/*.config.*
+/**/*.css
+/**/*.svg
+

@@ -1,8 +1,6 @@
-import {ModalPage} from "../page-objects/modal.page";
-import {HomePage} from "../page-objects/home.page";
+import { HomePage } from '../page-objects/home.page';
 
-describe('Header tests', () =>{
-  const modalPage = new ModalPage();
+describe('Header tests', () => {
   const home = new HomePage();
 
   it('Example test, edit it later', () => {

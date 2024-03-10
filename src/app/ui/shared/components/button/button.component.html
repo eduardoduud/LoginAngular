@@ -1,30 +1,45 @@
 <div class="flex items-center">
-  <button (click)="onClicked($event)"
-          [disabled]="isDisabled"
-          class="flex flex-row place-content-center items-center w-full py-xSmall px-small gap-x-spaceSmall rounded active:bg-lBlue-900"
-          [ngClass]="{'cursor-not-allowed disabled:text-lWhite-200 disabled:bg-lBlack-700': isDisabled,
-                      'bg-lBlue-800 hover:bg-lBlue-600': isPrimary,
-                      'bg-lGreen-400 hover:bg-lGreen-500': isSecondary,
-                      'bg-lWhite-200 hover:bg-lWhite-400': isTertiary,
-                      'bg-transparent hover:bg-cinzaTwitch-200': isBackgroundTransparent}">
-    <div *ngIf="icon && isIconLeft"
-         [ngClass]="{'text-lWhite-200': isPrimary,
-                     'text-lBlue-800': isSecondary || isTertiary}">
-      <app-icon [type]="icon"
-                [svgClass]="'h-lIconDefault w-lIconDefault'">
+  <button
+    (click)="onClicked($event)"
+    [disabled]="isDisabled"
+    class="flex flex-row place-content-center items-center w-full py-xSmall px-small gap-x-spaceSmall rounded active:bg-lBlue-900"
+    [ngClass]="{
+      'cursor-not-allowed disabled:text-lWhite-200 disabled:bg-lBlack-700':
+        isDisabled,
+      'bg-lBlue-800 hover:bg-lBlue-600': isPrimary,
+      'bg-lGreen-400 hover:bg-lGreen-500': isSecondary,
+      'bg-lWhite-200 hover:bg-lWhite-400': isTertiary,
+      'bg-transparent hover:bg-cinzaTwitch-200': isBackgroundTransparent
+    }"
+  >
+    <div
+      *ngIf="icon && isIconLeft"
+      [ngClass]="{
+        'text-lWhite-200': isPrimary,
+        'text-lBlue-800': isSecondary || isTertiary
+      }"
+    >
+      <app-icon [type]="icon" [svgClass]="'h-lIconDefault w-lIconDefault'">
       </app-icon>
     </div>
-    <div *ngIf="text"
-         [ngClass]="{'text-white font-bold': isPrimary,
-                     'text-lBlue-800 font-semiBold': isSecondary,
-                     'text-lBlue-800 font-bold': isTertiary}">
-      <span class="font-loginSans {{textSize}}">{{ text }}</span>
+    <div
+      *ngIf="text"
+      [ngClass]="{
+        'text-white font-bold': isPrimary,
+        'text-lBlue-800 font-semiBold': isSecondary,
+        'text-lBlue-800 font-bold': isTertiary
+      }"
+    >
+      <span class="font-loginSans {{ textSize }}">{{ text }}</span>
     </div>
-    <div *ngIf="icon && isIconRight"
-         [ngClass]="{'text-lWhite-200': isPrimary,
-                     'text-lBlue-800': isSecondary || isTertiary}">
-      <app-icon [type]="icon"
-                [svgClass]="'h-lIconDefault w-lIconDefault'">
+    <div
+      *ngIf="icon && isIconRight"
+      [ngClass]="{
+        'text-lWhite-200': isPrimary,
+        'text-lBlue-800': isSecondary || isTertiary
+      }"
+    >
+      <app-icon [type]="icon" [svgClass]="'h-lIconDefault w-lIconDefault'">
       </app-icon>
     </div>
   </button>

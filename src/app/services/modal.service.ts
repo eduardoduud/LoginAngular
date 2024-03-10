@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Observable, Subject } from 'rxjs';
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 @Injectable({
   providedIn: 'root',
 })
