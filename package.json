@@ -6,6 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "lint": "eslint . --ext .ts --ignore-path .eslintignore",
+    "lint-fix": "eslint . --fix --ext .ts --ignore-path .eslintignore",
     "format": "prettier --write . --ignore-path .prettierignore",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
