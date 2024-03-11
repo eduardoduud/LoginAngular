@@ -6,5 +6,6 @@
   "skipStrings": true,
   "skipComments": true,
   "skipRegExps": true,
-  "skipTemplates": true
+  "skipTemplates": true,
+  "plugins": ["prettier-plugin-tailwindcss"]
 }
