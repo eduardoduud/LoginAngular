@@ -6,7 +6,7 @@ import {
   FormGroup,
   FormsModule,
   ReactiveFormsModule,
-  Validators,
+  Validators
 } from '@angular/forms';
 import { ButtonComponent } from '../../button/button.component';
 import { ModalService } from '../../../../../services/modal.service';
@@ -21,8 +21,8 @@ import { IconComponent } from '../../../icon/icon.component';
     FormsModule,
     ButtonComponent,
     ReactiveFormsModule,
-    IconComponent,
-  ],
+    IconComponent
+  ]
 })
 export class RegisterModalComponent implements OnInit {
   registerForm: FormGroup;
@@ -38,7 +38,7 @@ export class RegisterModalComponent implements OnInit {
     'Setembro',
     'Outubro',
     'Novembro',
-    'Dezembro',
+    'Dezembro'
   ];
 
   constructor(public modalService: ModalService) {
@@ -47,19 +47,19 @@ export class RegisterModalComponent implements OnInit {
         username: new FormControl('', Validators.required),
         password: new FormControl('', [
           Validators.minLength(4),
-          Validators.required,
+          Validators.required
         ]),
         confirmPassword: new FormControl('', [
           Validators.minLength(4),
           this.passwordMatchValidator,
-          Validators.required,
+          Validators.required
         ]),
         email: new FormControl('', [Validators.required, Validators.email]),
         day: new FormControl('', Validators.required),
         month: new FormControl('', Validators.required),
-        year: new FormControl('', Validators.required),
+        year: new FormControl('', Validators.required)
       },
-      { validators: this.passwordMatchValidator },
+      { validators: this.passwordMatchValidator }
     );
   }
 

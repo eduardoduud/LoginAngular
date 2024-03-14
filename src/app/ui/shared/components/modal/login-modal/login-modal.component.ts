@@ -23,7 +23,7 @@ import { InputFieldComponent } from '../../input-field/input-field.component';
     RegisterModalComponent,
     ReactiveFormsModule,
     NgIf,
-    InputFieldComponent,
+    InputFieldComponent
   ],
   templateUrl: './login-modal.component.html'
 })

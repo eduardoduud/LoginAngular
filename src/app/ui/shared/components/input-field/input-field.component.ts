@@ -4,7 +4,7 @@ import { Component, Input } from '@angular/core';
   selector: 'login-app-input-field',
   standalone: true,
   imports: [],
-  templateUrl: './input-field.component.html',
+  templateUrl: './input-field.component.html'
 })
 export class InputFieldComponent {
   @Input() name = '';
