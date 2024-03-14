@@ -7,7 +7,7 @@ import {
   FormBuilder,
   FormGroup,
   Validators,
-  ReactiveFormsModule,
+  ReactiveFormsModule
 } from '@angular/forms';
 import { RegisterModalComponent } from '../register-modal/register-modal.component';
 import { NgIf } from '@angular/common';
@@ -21,9 +21,9 @@ import { NgIf } from '@angular/common';
     FormsModule,
     RegisterModalComponent,
     ReactiveFormsModule,
-    NgIf,
+    NgIf
   ],
-  templateUrl: './login-modal.component.html',
+  templateUrl: './login-modal.component.html'
 })
 export class LoginModalComponent implements OnInit {
   protected readonly registerModalComponent = RegisterModalComponent;
@@ -31,13 +31,13 @@ export class LoginModalComponent implements OnInit {
   hidePassword: boolean = true;
   constructor(
     public modalService: ModalService,
-    private formBuilder: FormBuilder,
+    private formBuilder: FormBuilder
   ) {}
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
       usuario: ['', Validators.minLength(4)],
-      senha: ['', Validators.minLength(8)],
+      senha: ['', Validators.minLength(8)]
     });
     this.modalService.getModalSubscription().subscribe(modalRef => {
       modalRef.afterClosed().subscribe(() => {});

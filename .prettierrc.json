@@ -1,7 +1,11 @@
 {
+  "ignore": ["**/*.html"],
   "semi": true,
   "singleQuote": true,
+  "trailingComma": "none",
+  "tabWidth": 2,
   "arrowParens": "avoid",
+  "htmlWhitespaceSensitivity": "ignore",
   "endOfLine": "crlf",
   "skipStrings": true,
   "skipComments": true,

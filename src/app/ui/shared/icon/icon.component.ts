@@ -5,14 +5,15 @@ import { SvgIconComponent } from 'angular-svg-icon';
 @Component({
   standalone: true,
   selector: 'app-icon',
-  template: `<svg-icon
-    [src]="iconPath"
-    [svgClass]="svgClass"
-    [applyClass]="true"
-  >
-  </svg-icon>`,
+  template: `
+    <svg-icon
+      [src]="iconPath"
+      [svgClass]="svgClass"
+      [applyClass]="true"
+    ></svg-icon>
+  `,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [IconModule, SvgIconComponent],
+  imports: [IconModule, SvgIconComponent]
 })
 export class IconComponent {
   iconPath = '';

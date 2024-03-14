@@ -4,6 +4,6 @@ import { NgModule } from '@angular/core';
 
 @NgModule({
   imports: [HttpClientModule, SvgIconComponent],
-  providers: [provideAngularSvgIcon()],
+  providers: [provideAngularSvgIcon()]
 })
 export class IconModule {}

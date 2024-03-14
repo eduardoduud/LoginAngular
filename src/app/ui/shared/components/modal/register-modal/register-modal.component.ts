@@ -8,7 +8,7 @@ import { ModalService } from '../../../../../services/modal.service';
   selector: 'login-app-register-modal',
   templateUrl: './register-modal.component.html',
   standalone: true,
-  imports: [CommonModule, FormsModule, ButtonComponent, ReactiveFormsModule],
+  imports: [CommonModule, FormsModule, ButtonComponent, ReactiveFormsModule]
 })
 export class RegisterModalComponent implements OnInit {
   protected meses = [
@@ -23,7 +23,7 @@ export class RegisterModalComponent implements OnInit {
     'Setembro',
     'Outubro',
     'Novembro',
-    'Dezembro',
+    'Dezembro'
   ];
   constructor(public modalService: ModalService) {}
   ngOnInit(): void {

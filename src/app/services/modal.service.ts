@@ -4,7 +4,7 @@ import { Observable, Subject } from 'rxjs';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class ModalService {
   private modalSubject = new Subject<MatDialogRef<any>>();

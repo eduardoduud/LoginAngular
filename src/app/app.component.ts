@@ -10,13 +10,13 @@ import { HeaderComponent } from './ui/shared/components/header/header.component'
   standalone: true,
   selector: 'login-root',
   templateUrl: './app.component.html',
-  imports: [LoginComponent, MatDialogModule, RouterOutlet, HeaderComponent],
+  imports: [LoginComponent, MatDialogModule, RouterOutlet, HeaderComponent]
 })
 export class AppComponent {
   title = 'login app';
   constructor(
     private titleService: Title,
-    private router: Router,
+    private router: Router
   ) {
     this.titleService.setTitle(this.title);
     router.navigate([`/${RoutePaths.Default}`]);
