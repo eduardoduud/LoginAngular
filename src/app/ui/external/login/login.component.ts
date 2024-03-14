@@ -6,6 +6,6 @@ import { NgStyle } from '@angular/common';
   standalone: true,
   selector: 'login-app-login',
   templateUrl: './login.component.html',
-  imports: [ButtonComponent, NgStyle],
+  imports: [ButtonComponent, NgStyle]
 })
 export class LoginComponent {}

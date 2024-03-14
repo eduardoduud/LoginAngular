@@ -11,12 +11,12 @@ export interface AppRoute extends Route {
 export const routes: Routes = [
   {
     path: RoutePaths.Default,
-    component: HomeComponent,
+    component: HomeComponent
   },
   {
     path: RoutePaths.Login,
-    component: LoginComponent,
-  },
+    component: LoginComponent
+  }
 ];
 
 export function getBaseUrl(): string {

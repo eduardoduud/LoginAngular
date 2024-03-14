@@ -7,6 +7,6 @@ import { NgIf } from '@angular/common';
   standalone: true,
   selector: 'login-app-home',
   templateUrl: './home.component.html',
-  imports: [ButtonComponent, LoginModalComponent, NgIf],
+  imports: [ButtonComponent, LoginModalComponent, NgIf]
 })
 export class HomeComponent {}
