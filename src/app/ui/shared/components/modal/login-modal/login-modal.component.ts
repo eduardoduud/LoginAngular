@@ -11,6 +11,7 @@ import {
 } from '@angular/forms';
 import { RegisterModalComponent } from '../register-modal/register-modal.component';
 import { NgIf } from '@angular/common';
+import { InputFieldComponent } from '../../input-field/input-field.component';
 
 @Component({
   selector: 'login-app-login-modal',
@@ -22,6 +23,7 @@ import { NgIf } from '@angular/common';
     RegisterModalComponent,
     ReactiveFormsModule,
     NgIf,
+    InputFieldComponent,
   ],
   templateUrl: './login-modal.component.html',
 })

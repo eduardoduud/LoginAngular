@@ -1,113 +1,111 @@
-<div class="modal-content bg-cinzaTwitch-900 w-full h-full p-5">
-  <div class="flex justify-end">
-    <login-app-button
-      [type]="'secondary'"
-      [text]="'X'"
-      [isIconRight]="true"
-      (clicked)="this.modalService.closeModal()"
-    >
-    </login-app-button>
+<div class="modal-content bg-cinzaTwitch-900 w-full h-full p-5 flex flex-col justify-center">
+  <div class="flex flex-row justify-center w-full">
+    <span class="font-loginSans font-bold text-brancoTwitch-500 text-3xl">
+      Registre-se
+    </span>
+    <div class="absolute end-2 top-2 cursor-pointer hover:bg-lBlack-700 rounded">
+      <app-icon type="closeX"
+                svgClass="w-lIconLarger h-lIconLarger"
+                (click)="this.modalService.closeModal()">
+      </app-icon>
+    </div>
   </div>
-  <h4
-    class="flex justify-center text-brancoTwitch-500 text-3xl font-bold font-loginSans"
-  >
-    Junte-se hoje à Twitch
-  </h4>
-  <form class="pt-4">
-    <div>
-      <div>
-        <label class="text-brancoTwitch-500 font-bold" for="usuario"
-          >Usuário</label
-        >
-      </div>
-      <div class="pt-1">
-        <input
-          class="w-full pl-2 rounded bg-cinzaTwitch-900 text-brancoTwitch-500 border border-cinzaTwitch-200 hover:shadow-lHover focus:shadow-lBorder focus:border-lGreen-400 focus:outline-none"
-          type="text"
-          id="usuario"
-          name="usuario"
-          required
-        />
+  <form class="pt-4 flex flex-col" novalidate [formGroup]="registerForm">
+    <div class="pb-4">
+      <label class="text-brancoTwitch-500 font-bold">Usuário</label>
+      <input
+        class="w-full pl-2 rounded bg-cinzaTwitch-900 text-brancoTwitch-500 border border-cinzaTwitch-200
+        hover:shadow-lHover focus:shadow-lBorder focus:border-lGreen-400 focus:outline-none mt-1"
+        type="text"
+        id="username"
+        name="username"
+        formControlName="username"
+        required
+      />
+    </div>
+    <div class="pb-4">
+      <label class="text-brancoTwitch-500 font-bold">Senha</label>
+      <input
+        class="w-full pl-2 rounded bg-cinzaTwitch-900 invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500
+        text-brancoTwitch-500 border border-cinzaTwitch-200 hover:shadow-lHover focus:shadow-lBorder focus:border-lGreen-400 focus:outline-none mt-1"
+        type="password"
+        id="password"
+        name="password"
+        placeholder=""
+        formControlName="password"
+        required
+      />
+    </div>
+    <div class="pb-4">
+      <label class="text-brancoTwitch-500 font-bold">Confirmação de senha</label>
+      <input
+        class="w-full pl-2 rounded bg-cinzaTwitch-900 invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500
+        text-brancoTwitch-500 border border-cinzaTwitch-200 hover:shadow-lHover focus:shadow-lBorder focus:border-lGreen-400 focus:outline-none mt-1"
+        type="password"
+        id="confirmPassword"
+        name="confirmPassword"
+        placeholder=""
+        formControlName="confirmPassword"
+        required
+      />
+      <div *ngIf="registerForm?.errors?.['mismatch'] && registerForm.get('confirmPassword')?.touched"
+           class="text-red-500">
+        <span>As senhas não coincidem!</span>
       </div>
     </div>
-    <div class="pt-4">
-      <div>
-        <label class="text-brancoTwitch-500 font-bold" for="senha">Senha</label>
-      </div>
-      <div class="mt-1">
-        <input
-          class="w-full pl-2 rounded bg-cinzaTwitch-900 text-brancoTwitch-500 border border-cinzaTwitch-200 hover:shadow-lHover focus:shadow-lBorder focus:border-lGreen-400 focus:outline-none"
-          type="password"
-          id="senha"
-          name="senha"
-          required
-        />
-      </div>
-    </div>
-    <div class="pt-4">
-      <div>
-        <label class="text-brancoTwitch-500 font-bold" for="senhaconf"
-          >Confirmação de senha</label
-        >
-      </div>
-      <div class="mt-1">
-        <input
-          class="w-full pl-2 rounded bg-cinzaTwitch-900 text-brancoTwitch-500 border border-cinzaTwitch-200 hover:shadow-lHover focus:shadow-lBorder focus:border-lGreen-400 focus:outline-none"
-          type="password"
-          id="senhaconf"
-          name="senha"
-          required
-        />
-      </div>
-    </div>
-    <div class="pt-4">
+    <div class="pb-4">
       <label class="text-brancoTwitch-500 font-bold">Data de Nascimento</label>
       <div class="flex justify-between mt-1">
         <input
-          class="w-1/5 py-1 pl-2 rounded bg-cinzaTwitch-900 text-brancoTwitch-500 border border-cinzaTwitch-200 placeholder:text-sm placeholder:text-gray-400 hover:shadow-lHover focus:shadow-lBorder focus:border-lGreen-400 focus:outline-none"
+          class="w-1/5 py-1 pl-2 rounded bg-cinzaTwitch-900 text-brancoTwitch-500 border border-cinzaTwitch-200
+          placeholder:text-sm placeholder:text-gray-400 hover:shadow-lHover focus:shadow-lBorder focus:border-lGreen-400 focus:outline-none"
           type="number"
-          id="dia"
+          id="day"
           placeholder="Dia"
+          formControlName="day"
           required
         />
-        <select
-          id="mes"
-          name="mes"
-          class="w-2/5 text-sm pl-2 rounded bg-cinzaTwitch-900 text-brancoTwitch-500 border border-cinzaTwitch-200 hover:shadow-lHover focus:shadow-lBorder focus:border-lGreen-400 focus:outline-none"
-          required
-        >
+        <select id="month"
+                name="month"
+                class="w-2/5 text-sm pl-2 rounded bg-cinzaTwitch-900 text-brancoTwitch-500 border border-cinzaTwitch-200
+                          hover:shadow-lHover focus:shadow-lBorder focus:border-lGreen-400 focus:outline-none"
+                formControlName="month"
+                required>
           <option value="" disabled selected>Mês</option>
           <option *ngFor="let mes of meses" [value]="mes">{{ mes }}</option>
         </select>
         <input
-          class="w-1/5 py-1 pl-2 rounded bg-cinzaTwitch-900 text-brancoTwitch-500 border border-cinzaTwitch-200 hover:shadow-lHover focus:shadow-lBorder focus:border-lGreen-400 placeholder:text-sm placeholder:text-gray-400 focus:outline-none"
+          class="w-1/5 py-1 pl-2 rounded bg-cinzaTwitch-900 text-brancoTwitch-500 border border-cinzaTwitch-200
+          hover:shadow-lHover focus:shadow-lBorder focus:border-lGreen-400 placeholder:text-sm placeholder:text-gray-400 focus:outline-none"
           type="number"
-          id="ano"
+          id="year"
           placeholder="Ano"
+          formControlName="year"
           required
         />
       </div>
     </div>
-    <div class="py-4">
-      <div>
-        <label class="text-brancoTwitch-500 font-bold" for="email"
-          >E-mail</label
-        >
-      </div>
-      <div class="pt-1">
-        <input
-          class="w-full pl-2 rounded bg-cinzaTwitch-900 text-brancoTwitch-500 border border-cinzaTwitch-200 hover:shadow-lHover focus:shadow-lBorder focus:border-lGreen-400 focus:outline-none"
-          type="email"
-          id="email"
-          name="email"
-          required
-        />
+    <div class="pb-4">
+      <label class="text-brancoTwitch-500 font-bold">E-mail</label>
+      <input
+        class="w-full pl-2 rounded bg-cinzaTwitch-900 invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500
+        text-brancoTwitch-500 border border-cinzaTwitch-200 hover:shadow-lHover focus:shadow-lBorder focus:border-lGreen-400 focus:outline-none mt-1"
+        type="email"
+        id="email"
+        name="email"
+        placeholder=""
+        formControlName="email"
+        required
+      />
+      <div *ngIf="registerForm.get('email')?.errors?.['email'] && registerForm.get('email')?.touched"
+           class="text-red-500">
+        <span class="text-sm">E-mail inválido</span>
       </div>
     </div>
-    <login-app-button
-      (clicked)="this.modalService.closeModal()"
-      [type]="'secondary'"
-      [text]="'Registrar-se'"
+    <login-app-button (clicked)="onSubmit()"
+                      [type]="'secondary'"
+                      [isDisabled]="registerForm.invalid"
+                      [text]="'Registrar-se'"
     ></login-app-button>
   </form>
 </div>
