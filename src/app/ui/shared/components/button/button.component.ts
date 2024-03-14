@@ -6,7 +6,7 @@ import { IconComponent } from '../../icon/icon.component';
   selector: 'login-app-button',
   standalone: true,
   imports: [NgIf, NgClass, IconComponent],
-  templateUrl: './button.component.html',
+  templateUrl: './button.component.html'
 })
 export class ButtonComponent implements OnInit {
   @Input() isDisabled = false;

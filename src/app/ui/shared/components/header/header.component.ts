@@ -14,9 +14,9 @@ import { IconComponent } from '../../icon/icon.component';
     ButtonComponent,
     LoginModalComponent,
     RegisterModalComponent,
-    IconComponent,
+    IconComponent
   ],
-  templateUrl: './header.component.html',
+  templateUrl: './header.component.html'
 })
 export class HeaderComponent {
   protected readonly loginModalComponent = LoginModalComponent;
