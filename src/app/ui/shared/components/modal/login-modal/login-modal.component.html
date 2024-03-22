@@ -9,27 +9,27 @@
     </div>
   </div>
   <form class="flex flex-col gap-y-spaceDefault" [formGroup]="loginForm">
-    <login-app-input-field id="usuario"
-                           name="usuario"
-                           label="Usuário"
-                           formControlName="usuario"
-                           required>
+    <login-app-input-field id="username"
+                           name="username"
+                           label="Username"
+                           formControlName="username"
+                           required
+                           (onValueChange)="updateUsername($event)">
     </login-app-input-field>
     <div class="flex flex-col gap-y-spaceXSmall">
       <label class="flex text-brancoTwitch-500 font-bold"
-             for="senha">
-        Senha
+             for="password">
+        Password
       </label>
       <div class="w-full relative">
         <input
           class="p-small w-full rounded border border-cinzaTwitch-200 bg-transparent text-lWhite-200
             hover:shadow-lHover focus:border-lGreen-400 focus:shadow-lBorder focus:outline-none"
           type="{{ hidePassword ? 'password' : 'text' }}"
-          id="senha"
-          name="senha"
-          formControlName="senha"
-          required
-        />
+          id="password"
+          name="password"
+          formControlName="password"
+          required />
         <button class="absolute end-2 top-spaceTiny"
                 type="button"
                 (click)="togglePasswordVisibility()">
@@ -47,7 +47,7 @@
       </div>
     </div>
   </form>
-  <login-app-button (clicked)="this.modalService.closeModal()"
+  <login-app-button (clicked)="loginUser()"
                     [type]="'secondary'"
                     [isDisabled]="loginForm.invalid"
                     [text]="'Entrar'">

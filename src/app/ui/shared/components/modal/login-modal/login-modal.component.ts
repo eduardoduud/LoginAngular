@@ -38,8 +38,8 @@ export class LoginModalComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
-      usuario: ['', Validators.minLength(4)],
-      senha: ['', Validators.minLength(8)]
+      username: ['', Validators.minLength(4)],
+      password: ['', Validators.minLength(8)]
     });
     this.modalService.getModalSubscription().subscribe(modalRef => {
       modalRef.afterClosed().subscribe(() => {});
@@ -55,5 +55,14 @@ export class LoginModalComponent implements OnInit {
 
   togglePasswordVisibility(): void {
     this.hidePassword = !this.hidePassword;
+  }
+
+  updateUsername(username: string): void {
+    this.loginForm.value.username = username;
+  }
+
+  loginUser(): void {
+    // TODO: call backend service here and close modal if status = 200
+    this.modalService.closeModal();
   }
 }
