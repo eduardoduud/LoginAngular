@@ -41,9 +41,6 @@ module.exports = {
           100: '#939399',
           200: '#67676B',
           900: '#18181b'
-        },
-        brancoTwitch:{
-          500: '#f7f7f8'
         }
       },
       padding: {

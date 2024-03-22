@@ -1,6 +1,6 @@
 <div class="modal-content bg-lGrey-900 w-full h-full p-5 flex flex-col justify-center">
   <div class="flex flex-row justify-center w-full">
-    <span class="font-loginSans font-bold text-brancoTwitch-500 text-3xl">
+    <span class="font-loginSans font-bold text-lWhite-500 text-3xl">
       Registre-se
     </span>
     <div class="absolute end-2 top-2 cursor-pointer hover:bg-lBlack-700 rounded">
@@ -12,9 +12,9 @@
   </div>
   <form class="pt-4 flex flex-col" novalidate [formGroup]="registerForm">
     <div class="pb-4">
-      <label class="text-brancoTwitch-500 font-bold">Usuário</label>
+      <label class="text-lWhite-500 font-bold">Usuário</label>
       <input
-        class="w-full pl-2 rounded bg-lGrey-900 text-brancoTwitch-500 border border-lGrey-200
+        class="w-full pl-2 rounded bg-lGrey-900 text-lWhite-500 border border-lGrey-200
         hover:shadow-lHover focus:shadow-lBorder focus:border-lGreen-400 focus:outline-none mt-1"
         type="text"
         id="username"
@@ -23,10 +23,10 @@
         required />
     </div>
     <div class="pb-4">
-      <label class="text-brancoTwitch-500 font-bold">Senha</label>
+      <label class="text-lWhite-500 font-bold">Senha</label>
       <input
         class="w-full pl-2 rounded bg-lGrey-900 invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500
-        text-brancoTwitch-500 border border-lGrey-200 hover:shadow-lHover focus:shadow-lBorder focus:border-lGreen-400 focus:outline-none mt-1"
+        text-lWhite-500 border border-lGrey-200 hover:shadow-lHover focus:shadow-lBorder focus:border-lGreen-400 focus:outline-none mt-1"
         type="password"
         id="password"
         name="password"
@@ -35,10 +35,10 @@
         required />
     </div>
     <div class="pb-4">
-      <label class="text-brancoTwitch-500 font-bold">Confirmação de senha</label>
+      <label class="text-lWhite-500 font-bold">Confirmação de senha</label>
       <input
         class="w-full pl-2 rounded bg-lGrey-900 invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500
-        text-brancoTwitch-500 border border-lGrey-200 hover:shadow-lHover focus:shadow-lBorder focus:border-lGreen-400 focus:outline-none mt-1"
+        text-lWhite-500 border border-lGrey-200 hover:shadow-lHover focus:shadow-lBorder focus:border-lGreen-400 focus:outline-none mt-1"
         type="password"
         id="confirmPassword"
         name="confirmPassword"
@@ -51,10 +51,10 @@
       </div>
     </div>
     <div class="pb-4">
-      <label class="text-brancoTwitch-500 font-bold">Data de Nascimento</label>
+      <label class="text-lWhite-500 font-bold">Data de Nascimento</label>
       <div class="flex justify-between mt-1">
         <input
-          class="w-1/5 py-1 pl-2 rounded bg-lGrey-900 text-brancoTwitch-500 border border-lGrey-200
+          class="w-1/5 py-1 pl-2 rounded bg-lGrey-900 text-lWhite-500 border border-lGrey-200
           placeholder:text-sm placeholder:text-gray-400 hover:shadow-lHover focus:shadow-lBorder focus:border-lGreen-400 focus:outline-none"
           type="number"
           id="day"
@@ -63,7 +63,7 @@
           required />
         <select id="month"
                 name="month"
-                class="w-2/5 text-sm pl-2 rounded bg-lGrey-900 text-brancoTwitch-500 border border-lGrey-200
+                class="w-2/5 text-sm pl-2 rounded bg-lGrey-900 text-lWhite-500 border border-lGrey-200
                           hover:shadow-lHover focus:shadow-lBorder focus:border-lGreen-400 focus:outline-none"
                 formControlName="month"
                 required>
@@ -71,7 +71,7 @@
           <option *ngFor="let mes of meses" [value]="mes">{{ mes }}</option>
         </select>
         <input
-          class="w-1/5 py-1 pl-2 rounded bg-lGrey-900 text-brancoTwitch-500 border border-lGrey-200
+          class="w-1/5 py-1 pl-2 rounded bg-lGrey-900 text-lWhite-500 border border-lGrey-200
           hover:shadow-lHover focus:shadow-lBorder focus:border-lGreen-400 placeholder:text-sm placeholder:text-gray-400 focus:outline-none"
           type="number"
           id="year"
@@ -81,10 +81,10 @@
       </div>
     </div>
     <div class="pb-4">
-      <label class="text-brancoTwitch-500 font-bold">E-mail</label>
+      <label class="text-lWhite-500 font-bold">E-mail</label>
       <input
         class="w-full pl-2 rounded bg-lGrey-900 invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500
-        text-brancoTwitch-500 border border-lGrey-200 hover:shadow-lHover focus:shadow-lBorder focus:border-lGreen-400 focus:outline-none mt-1"
+        text-lWhite-500 border border-lGrey-200 hover:shadow-lHover focus:shadow-lBorder focus:border-lGreen-400 focus:outline-none mt-1"
         type="email"
         id="email"
         name="email"
