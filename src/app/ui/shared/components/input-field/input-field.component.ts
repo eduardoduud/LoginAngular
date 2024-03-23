@@ -1,18 +1,29 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { IconComponent } from '../../icon/icon.component';
+import { NgIf, NgTemplateOutlet } from '@angular/common';
 
 @Component({
   selector: 'login-app-input-field',
   standalone: true,
-  imports: [],
+  imports: [IconComponent, NgIf, NgTemplateOutlet, FormsModule],
   templateUrl: './input-field.component.html'
 })
 export class InputFieldComponent {
-  @Input() name = '';
   @Input() id = '';
+  @Input() isErrorMessageVisible = false;
   @Input() label = '';
-  @Output() onValueChange = new EventEmitter<string>();
+  @Input() maxLength = 50;
+  @Input() name = '';
+  @Input() placeHolder = '';
+  @Input() required = false;
+  @Input() type = '';
+  @Input() value = '';
 
-  onChange(value: Event): void {
-    this.onValueChange.emit((value.target as HTMLInputElement).value);
+  @Output() valueChange = new EventEmitter<string>();
+
+  protected hidePassword: boolean = true;
+  togglePasswordVisibility(): void {
+    this.hidePassword = !this.hidePassword;
   }
 }

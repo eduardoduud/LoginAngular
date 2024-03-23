@@ -1,13 +1,33 @@
 <div class="flex flex-col gap-y-spaceXSmall">
-  <label class="flex font-bold text-lWhite-500"
-         [for]="name">
-    {{ label }}
-  </label>
-  <input
-    class="flex w-full items-center rounded border border-lGrey-200 bg-transparent
-    p-small text-lWhite-200 hover:shadow-lHover focus:border-lGreen-400 focus:shadow-lBorder focus:outline-none"
-    type="text"
-    [id]="id"
-    [name]="name"
-    (input)="onChange($event)" />
+  <label class="flex font-bold text-lWhite-300" [for]="name">{{ label }}</label>
+  <div class="w-full relative">
+    <input class="flex w-full items-center rounded border border-lGrey-200 bg-transparent
+           p-small text-lWhite-200 hover:shadow-lHover focus:border-lGreen-400 focus:shadow-lBorder focus:outline-none"
+           [id]="id"
+           [name]="name"
+           [placeholder]="placeHolder"
+           [maxlength]="maxLength"
+           [ngModel]="value"
+           (ngModelChange)="valueChange.emit($event)"
+           type="{{ type === 'password' ? (hidePassword ? 'password' : 'text'): type }}"
+           required="{{required}}" />
+    <button *ngIf="type === 'password'"
+            class="absolute end-2 top-spaceTiny"
+            type="button"
+            (click)="togglePasswordVisibility()">
+      <ng-container *ngIf="hidePassword">
+        <app-icon svgClass="w-lIconDefault h-lIconDefault"
+                  type="eyeOpen">
+        </app-icon>
+      </ng-container>
+      <ng-container *ngIf="!hidePassword">
+        <app-icon svgClass="w-lIconDefault h-lIconDefault"
+                  type="eyeClosed">
+        </app-icon>
+      </ng-container>
+    </button>
+  </div>
+</div>
+<div *ngIf="isErrorMessageVisible">
+  <span class="absolute px-xSmall whitespace-normal font-bold text-red-600">Field {{label}} invalid</span>
 </div>
