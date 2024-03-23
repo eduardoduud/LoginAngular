@@ -1,6 +1,6 @@
 <div class="flex flex-col w-full h-full p-biggest bg-lGrey-900 gap-y-spaceBig">
   <div class="flex flex-row justify-center">
-    <span class="font-loginSans font-bold text-lWhite-500 text-3xl">Entrar no site</span>
+    <span class="font-loginSans font-bold text-lWhite-300 text-3xl">Entrar no site</span>
     <div class="absolute end-2 top-2 cursor-pointer hover:bg-lBlack-700 rounded">
       <app-icon type="closeX"
                 svgClass="w-lIconLarger h-lIconLarger"
@@ -8,54 +8,37 @@
       </app-icon>
     </div>
   </div>
-  <form class="flex flex-col gap-y-spaceDefault" [formGroup]="loginForm">
+  <form class="flex flex-col gap-y-spaceBig"
+        [formGroup]="loginForm"
+        (ngSubmit)="onSubmit()"
+        (keydown.enter)="onSubmit()">
     <login-app-input-field id="username"
                            name="username"
                            label="Username"
-                           formControlName="username"
-                           required
-                           (onValueChange)="updateUsername($event)">
+                           type="text"
+                           [isErrorMessageVisible]="!isValidUsername"
+                           [(value)]="username"
+                           (valueChange)="loginForm.value.username = username">
     </login-app-input-field>
-    <div class="flex flex-col gap-y-spaceXSmall">
-      <label class="flex text-lWhite-500 font-bold"
-             for="password">
-        Password
-      </label>
-      <div class="w-full relative">
-        <input
-          class="p-small w-full rounded border border-lGrey-200 bg-transparent text-lWhite-200
-            hover:shadow-lHover focus:border-lGreen-400 focus:shadow-lBorder focus:outline-none"
-          type="{{ hidePassword ? 'password' : 'text' }}"
-          id="password"
-          name="password"
-          formControlName="password"
-          required />
-        <button class="absolute end-2 top-spaceTiny"
-                type="button"
-                (click)="togglePasswordVisibility()">
-          <ng-container *ngIf="hidePassword">
-            <app-icon svgClass="w-lIconDefault h-lIconDefault"
-                      type="eyeOpen">
-            </app-icon>
-          </ng-container>
-          <ng-container *ngIf="!hidePassword">
-            <app-icon svgClass="w-lIconDefault h-lIconDefault"
-                      type="eyeClosed">
-            </app-icon>
-          </ng-container>
-        </button>
-      </div>
-    </div>
+    <login-app-input-field id="password"
+                           name="password"
+                           label="Password"
+                           type="password"
+                           [isErrorMessageVisible]="!isValidPassword"
+                           [(value)]="password"
+                           (valueChange)="loginForm.value.password = password">
+    </login-app-input-field>
   </form>
-  <login-app-button (clicked)="loginUser()"
-                    [type]="'secondary'"
-                    [isDisabled]="loginForm.invalid"
-                    [text]="'Entrar'">
-  </login-app-button>
-  <login-app-button [type]="'primary'"
-                    [text]="'Ainda não possui uma conta? Cadastre-se'"
-                    [textSize]="'text-sm'"
-                    [isBackgroundTransparent]="true"
-                    (clicked)="closeLoginAndOpenRegister()">
-  </login-app-button>
+  <div class="flex flex-col gap-y-spaceBig mt-spaceBig">
+    <login-app-button (clicked)="onSubmit()"
+                      [design]="'secondary'"
+                      [text]="'Entrar'">
+    </login-app-button>
+    <login-app-button [design]="'primary'"
+                      [text]="'Ainda não possui uma conta? Cadastre-se'"
+                      [textSize]="'text-sm'"
+                      [isBackgroundTransparent]="true"
+                      (clicked)="closeLoginAndOpenRegister()">
+    </login-app-button>
+  </div>
 </div>

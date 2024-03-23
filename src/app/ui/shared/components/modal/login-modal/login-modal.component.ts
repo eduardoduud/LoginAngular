@@ -6,7 +6,6 @@ import {
   FormsModule,
   FormBuilder,
   FormGroup,
-  Validators,
   ReactiveFormsModule
 } from '@angular/forms';
 import { RegisterModalComponent } from '../register-modal/register-modal.component';
@@ -28,9 +27,13 @@ import { InputFieldComponent } from '../../input-field/input-field.component';
   templateUrl: './login-modal.component.html'
 })
 export class LoginModalComponent implements OnInit {
+  protected username = '';
+  protected password = '';
   protected readonly registerModalComponent = RegisterModalComponent;
   protected loginForm!: FormGroup;
-  hidePassword: boolean = true;
+  protected isValidUsername = true;
+  protected isValidPassword = true;
+
   constructor(
     public modalService: ModalService,
     private formBuilder: FormBuilder
@@ -38,31 +41,33 @@ export class LoginModalComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
-      username: ['', Validators.minLength(4)],
-      password: ['', Validators.minLength(8)]
+      username: [''],
+      password: ['']
     });
     this.modalService.getModalSubscription().subscribe(modalRef => {
       modalRef.afterClosed().subscribe(() => {});
     });
   }
 
+  validateUsername(): void {
+    this.isValidUsername = this.loginForm.value.username.length >= 4;
+  }
+
+  validatePassword(): void {
+    this.isValidPassword = this.loginForm.value.password.length >= 8;
+  }
+
+  onSubmit() {
+    this.validateUsername();
+    this.validatePassword();
+    if (this.isValidUsername && this.isValidPassword) {
+      this.loginForm.reset();
+      this.modalService.closeModal();
+    }
+  }
+
   closeLoginAndOpenRegister(): void {
     this.modalService.closeModal();
-    this.modalService
-      .openModal(this.registerModalComponent)
-      .subscribe(() => {});
-  }
-
-  togglePasswordVisibility(): void {
-    this.hidePassword = !this.hidePassword;
-  }
-
-  updateUsername(username: string): void {
-    this.loginForm.value.username = username;
-  }
-
-  loginUser(): void {
-    // TODO: call backend service here and close modal if status = 200
-    this.modalService.closeModal();
+    this.modalService.openModal(this.registerModalComponent);
   }
 }
