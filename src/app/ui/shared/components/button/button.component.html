@@ -1,6 +1,7 @@
 <div class="flex items-center">
   <button (click)="onClicked($event)"
           [disabled]="isDisabled"
+          [type]="type"
           class="flex flex-row place-content-center items-center w-full py-xSmall px-small gap-x-spaceSmall rounded active:bg-lBlue-900"
           [ngClass]="{'cursor-not-allowed disabled:text-lWhite-200 disabled:bg-lBlack-700': isDisabled,
                        'bg-lBlue-800 hover:bg-lBlue-600': isPrimary,

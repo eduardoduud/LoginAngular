@@ -9,11 +9,12 @@ import { IconComponent } from '../../icon/icon.component';
   templateUrl: './button.component.html'
 })
 export class ButtonComponent implements OnInit {
+  @Input() type?: string;
   @Input() isDisabled = false;
   @Input() isIconLeft = false;
   @Input() isIconRight = false;
   @Input() isBackgroundTransparent = false;
-  @Input({ required: true }) type: string =
+  @Input({ required: true }) design: string =
     'primary' || 'secondary' || 'tertiary';
   @Input() icon = '';
   @Input() text = '';
@@ -29,14 +30,14 @@ export class ButtonComponent implements OnInit {
     if (this.icon && !this.text) {
       throw new Error('Buttons with icons must contain text.');
     }
-    this.type = this.type || 'primary';
+    this.design = this.design || 'primary';
     this.isDisabled = this.isDisabled || false;
     this.isIconLeft = this.isIconLeft || false;
     this.isIconRight = this.isIconRight || false;
 
-    this.isPrimary = this.type.toLowerCase() === 'primary' || false;
-    this.isSecondary = this.type.toLowerCase() === 'secondary' || false;
-    this.isTertiary = this.type.toLowerCase() === 'tertiary' || false;
+    this.isPrimary = this.design.toLowerCase() === 'primary' || false;
+    this.isSecondary = this.design.toLowerCase() === 'secondary' || false;
+    this.isTertiary = this.design.toLowerCase() === 'tertiary' || false;
   }
 
   onClicked(event: Event): void {
