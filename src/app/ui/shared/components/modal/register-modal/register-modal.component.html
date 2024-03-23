@@ -1,105 +1,85 @@
-<div class="modal-content bg-lGrey-900 w-full h-full p-5 flex flex-col justify-center">
-  <div class="flex flex-row justify-center w-full">
-    <span class="font-loginSans font-bold text-lWhite-500 text-3xl">
-      Registre-se
+<div class="flex flex-col p-biggest bg-lGrey-900 gap-y-spaceBig justify-center">
+  <div class="flex flex-row justify-center">
+    <span class="font-loginSans font-bold text-lWhite-300 text-3xl">
+      Register
     </span>
     <div class="absolute end-2 top-2 cursor-pointer hover:bg-lBlack-700 rounded">
       <app-icon type="closeX"
                 svgClass="w-lIconLarger h-lIconLarger"
-                (click)="this.modalService.closeModal()">
+                (click)="resetRegisterForm()">
       </app-icon>
     </div>
   </div>
-  <form class="pt-4 flex flex-col" novalidate [formGroup]="registerForm">
-    <div class="pb-4">
-      <label class="text-lWhite-500 font-bold">Usuário</label>
-      <input
-        class="w-full pl-2 rounded bg-lGrey-900 text-lWhite-500 border border-lGrey-200
-        hover:shadow-lHover focus:shadow-lBorder focus:border-lGreen-400 focus:outline-none mt-1"
-        type="text"
-        id="username"
-        name="username"
-        formControlName="username"
-        required />
-    </div>
-    <div class="pb-4">
-      <label class="text-lWhite-500 font-bold">Senha</label>
-      <input
-        class="w-full pl-2 rounded bg-lGrey-900 invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500
-        text-lWhite-500 border border-lGrey-200 hover:shadow-lHover focus:shadow-lBorder focus:border-lGreen-400 focus:outline-none mt-1"
-        type="password"
-        id="password"
-        name="password"
-        placeholder=""
-        formControlName="password"
-        required />
-    </div>
-    <div class="pb-4">
-      <label class="text-lWhite-500 font-bold">Confirmação de senha</label>
-      <input
-        class="w-full pl-2 rounded bg-lGrey-900 invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500
-        text-lWhite-500 border border-lGrey-200 hover:shadow-lHover focus:shadow-lBorder focus:border-lGreen-400 focus:outline-none mt-1"
-        type="password"
-        id="confirmPassword"
-        name="confirmPassword"
-        placeholder=""
-        formControlName="confirmPassword"
-        required />
-      <div *ngIf="registerForm?.errors?.['mismatch'] && registerForm.get('confirmPassword')?.touched"
-           class="text-red-500">
-        <span>As senhas não coincidem!</span>
-      </div>
-    </div>
-    <div class="pb-4">
-      <label class="text-lWhite-500 font-bold">Data de Nascimento</label>
-      <div class="flex justify-between mt-1">
-        <input
-          class="w-1/5 py-1 pl-2 rounded bg-lGrey-900 text-lWhite-500 border border-lGrey-200
-          placeholder:text-sm placeholder:text-gray-400 hover:shadow-lHover focus:shadow-lBorder focus:border-lGreen-400 focus:outline-none"
-          type="number"
-          id="day"
-          placeholder="Dia"
-          formControlName="day"
-          required />
+  <form class="flex flex-col gap-y-spaceDefault"
+        [formGroup]="registerForm"
+        (ngSubmit)="onSubmit()"
+        (keydown.enter)="onSubmit()">
+    <login-app-input-field id="username"
+                           name="username"
+                           label="Username"
+                           type="text"
+                           [isErrorMessageVisible]="!isValidUsername"
+                           [(value)]="registerForm.value.username">
+    </login-app-input-field>
+    <login-app-input-field class="form-control"
+                           id="password"
+                           name="password"
+                           label="Password"
+                           type="text"
+                           [isErrorMessageVisible]="!isValidPassword"
+                           [(value)]="registerForm.value.password"
+                           (valueChange)="validatePasswordAndConfirmPass()">
+    </login-app-input-field>
+    <login-app-input-field id="confirmPassword"
+                           name="confirmPassword"
+                           label="Password Confirmation"
+                           type="text"
+                           [isErrorMessageVisible]="!isValidConfirmPassword"
+                           [(value)]="registerForm.value.confirmPassword"
+                           (valueChange)="validatePasswordAndConfirmPass()">
+    </login-app-input-field>
+    <div class="flex flex-row gap-x-spaceBig items-center">
+      <login-app-input-field id="day"
+                             name="day"
+                             type="number"
+                             placeHolder="Day"
+                             [maxLength]="2"
+                             [isErrorMessageVisible]="!isValidDay"
+                             [(value)]="registerForm.value.day">
+      </login-app-input-field>
+      <div class="flex flex-col gap-y-spaceXSmall w-full">
         <select id="month"
                 name="month"
-                class="w-2/5 text-sm pl-2 rounded bg-lGrey-900 text-lWhite-500 border border-lGrey-200
-                          hover:shadow-lHover focus:shadow-lBorder focus:border-lGreen-400 focus:outline-none"
-                formControlName="month"
-                required>
-          <option value="" disabled selected>Mês</option>
-          <option *ngFor="let mes of meses" [value]="mes">{{ mes }}</option>
+                class="flex items-center rounded border border-lGrey-200 bg-lGrey-900
+                p-small text-lWhite-200 hover:shadow-lHover focus:border-lGreen-400 focus:shadow-lBorder focus:outline-none"
+                (input)="updateMonth($event)">
+          <option value="" disabled selected hidden>
+            <span>Month</span>
+          </option>
+          <option *ngFor="let month of months" [value]="month">{{ month }}</option>
         </select>
-        <input
-          class="w-1/5 py-1 pl-2 rounded bg-lGrey-900 text-lWhite-500 border border-lGrey-200
-          hover:shadow-lHover focus:shadow-lBorder focus:border-lGreen-400 placeholder:text-sm placeholder:text-gray-400 focus:outline-none"
-          type="number"
-          id="year"
-          placeholder="Ano"
-          formControlName="year"
-          required />
       </div>
+      <login-app-input-field id="year"
+                             name="year"
+                             type="number"
+                             placeHolder="Year"
+                             [maxLength]="4"
+                             [isErrorMessageVisible]="!isValidYear"
+                             [(value)]="registerForm.value.year">
+      </login-app-input-field>
     </div>
-    <div class="pb-4">
-      <label class="text-lWhite-500 font-bold">E-mail</label>
-      <input
-        class="w-full pl-2 rounded bg-lGrey-900 invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500
-        text-lWhite-500 border border-lGrey-200 hover:shadow-lHover focus:shadow-lBorder focus:border-lGreen-400 focus:outline-none mt-1"
-        type="email"
-        id="email"
-        name="email"
-        placeholder=""
-        formControlName="email"
-        required />
-      <div *ngIf="registerForm.get('email')?.errors?.['email'] && registerForm.get('email')?.touched"
-           class="text-red-500">
-        <span class="text-sm">E-mail inválido</span>
-      </div>
-    </div>
-    <login-app-button (clicked)="onSubmit()"
-                      [type]="'secondary'"
-                      [isDisabled]="registerForm.invalid"
-                      [text]="'Registrar-se'"
-    ></login-app-button>
+    <login-app-input-field id="email"
+                           name="email"
+                           label="E-mail"
+                           type="email"
+                           [isErrorMessageVisible]="!isValidEmail"
+                           [(value)]="registerForm.value.email">
+    </login-app-input-field>
   </form>
+  <div class="mt-spaceBig">
+    <login-app-button (clicked)="onSubmit()"
+                      [design]="'secondary'"
+                      [text]="'Register'">
+    </login-app-button>
+  </div>
 </div>
