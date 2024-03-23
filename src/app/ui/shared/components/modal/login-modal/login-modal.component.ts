@@ -27,8 +27,6 @@ import { InputFieldComponent } from '../../input-field/input-field.component';
   templateUrl: './login-modal.component.html'
 })
 export class LoginModalComponent implements OnInit {
-  protected username = '';
-  protected password = '';
   protected readonly registerModalComponent = RegisterModalComponent;
   protected loginForm!: FormGroup;
   protected isValidUsername = true;

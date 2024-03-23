@@ -17,16 +17,14 @@
                            label="Username"
                            type="text"
                            [isErrorMessageVisible]="!isValidUsername"
-                           [(value)]="username"
-                           (valueChange)="loginForm.value.username = username">
+                           [(value)]="loginForm.value.username">
     </login-app-input-field>
     <login-app-input-field id="password"
                            name="password"
                            label="Password"
                            type="password"
                            [isErrorMessageVisible]="!isValidPassword"
-                           [(value)]="password"
-                           (valueChange)="loginForm.value.password = password">
+                           [(value)]="loginForm.value.password">
     </login-app-input-field>
   </form>
   <div class="flex flex-col gap-y-spaceBig mt-spaceBig">
