@@ -7,8 +7,10 @@
            [name]="name"
            [placeholder]="placeHolder"
            [maxlength]="maxLength"
+           [readonly]="readonly"
            [ngModel]="value"
            (ngModelChange)="valueChange.emit($event)"
+           [ngClass]="{'cursor-default': readonly}"
            type="{{ type === 'password' ? (hidePassword ? 'password' : 'text'): type }}"
            required="{{required}}" />
     <button *ngIf="type === 'password'"

@@ -1,12 +1,12 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { IconComponent } from '../../icon/icon.component';
-import { NgIf, NgTemplateOutlet } from '@angular/common';
+import { NgClass, NgIf, NgTemplateOutlet } from '@angular/common';
 
 @Component({
   selector: 'login-app-input-field',
   standalone: true,
-  imports: [IconComponent, NgIf, NgTemplateOutlet, FormsModule],
+  imports: [IconComponent, NgIf, NgTemplateOutlet, FormsModule, NgClass],
   templateUrl: './input-field.component.html'
 })
 export class InputFieldComponent {
@@ -17,6 +17,7 @@ export class InputFieldComponent {
   @Input() name = '';
   @Input() placeHolder = '';
   @Input() required = false;
+  @Input() readonly = false;
   @Input() type = '';
   @Input() value = '';
 
