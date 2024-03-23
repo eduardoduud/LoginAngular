@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{html,ts}"],
+  content: ['./src/**/*.{html,ts}'],
   theme: {
     fontFamily: {
       'loginSans': ['Inter, sans-serif']
@@ -22,11 +22,11 @@ module.exports = {
           300: '#f7f7f8',
           400: '#C3C6C9'
         },
-        lBlack:{
+        lBlack: {
           700: '#323232',
           900: '#212121'
         },
-        lBlue:{
+        lBlue: {
           100: '#14FFEC',
           300: '#25B5A8',
           600: '#1F384D',
@@ -37,7 +37,7 @@ module.exports = {
           400: '#21C063',
           500: '#188A47'
         },
-        lGrey:{
+        lGrey: {
           100: '#939399',
           200: '#67676B',
           900: '#18181b'
@@ -67,9 +67,9 @@ module.exports = {
       height: {
         lIconSmall: '0.75rem'/*12px*/,
         lIconDefault: '1rem'/*16px*/,
-        lIconLarge: '1.125rem'/*18px*/,
+        lIconLarge: '1.125rem'/*18px*/
       },
-      width:{
+      width: {
         lIconSmall: '0.75rem'/*12px*/,
         lIconDefault: '1rem'/*16px*/,
         lIconLarge: '1.125rem'/*18px*/,
@@ -78,7 +78,7 @@ module.exports = {
       maxWidth: {
         lMaxHeaderW: `calc(100vw / 4)`
       }
-    },
+    }
   },
-  plugins: [],
+  plugins: []
 };
