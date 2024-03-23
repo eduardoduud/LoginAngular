@@ -88,7 +88,7 @@ export class RegisterModalComponent implements OnInit {
     this.isValidDay =
       this.registerForm.value.day.length <= 2 &&
       this.registerForm.value.day.length > 0;
-    this.isValidMonth = this.registerForm.value.day.length > 0;
+    this.isValidMonth = this.registerForm.value.isValidMonth.length > 0;
     this.isValidYear = this.registerForm.value.year.length == 4;
     return this.isValidDay && this.isValidMonth && this.isValidYear;
   }
@@ -120,6 +120,7 @@ export class RegisterModalComponent implements OnInit {
   onSubmit() {
     this.validateUserInfo();
     if (this.isValidUserInfo) {
+      console.log(this.registerForm.value);
       this.registerForm.reset();
       this.modalService.closeModal();
     }
