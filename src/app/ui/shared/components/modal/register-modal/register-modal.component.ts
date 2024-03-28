@@ -1,15 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {
-  FormBuilder,
-  FormGroup,
-  FormsModule,
-  ReactiveFormsModule
-} from '@angular/forms';
 import { ButtonComponent } from '../../button/button.component';
 import { ModalService } from '../../../../../services/modal.service';
 import { IconComponent } from '../../../icon/icon.component';
 import { InputFieldComponent } from '../../input-field/input-field.component';
+import { RegisterFormModel } from '../../../../../model/register-form.model';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'login-app-register-modal',
@@ -17,11 +13,10 @@ import { InputFieldComponent } from '../../input-field/input-field.component';
   standalone: true,
   imports: [
     CommonModule,
-    FormsModule,
     ButtonComponent,
-    ReactiveFormsModule,
     IconComponent,
-    InputFieldComponent
+    InputFieldComponent,
+    FormsModule
   ]
 })
 export class RegisterModalComponent implements OnInit {
@@ -33,8 +28,7 @@ export class RegisterModalComponent implements OnInit {
   protected isValidMonth = true;
   protected isValidYear = true;
   protected isValidEmail = true;
-
-  protected registerForm!: FormGroup;
+  protected registerFormData: RegisterFormModel = new RegisterFormModel();
   protected months = [
     'Janeiro',
     'Fevereiro',
@@ -50,82 +44,61 @@ export class RegisterModalComponent implements OnInit {
     'Dezembro'
   ];
 
-  constructor(
-    public modalService: ModalService,
-    private formBuilder: FormBuilder
-  ) {}
+  constructor(public modalService: ModalService) {}
 
   ngOnInit(): void {
-    this.registerForm = this.formBuilder.group({
-      username: [''],
-      password: [''],
-      confirmPassword: [''],
-      email: [''],
-      day: [''],
-      month: [''],
-      year: ['']
-    });
     this.modalService.getModalSubscription().subscribe(modalRef => {
       modalRef.afterClosed().subscribe(() => {});
     });
   }
 
   validateUsername(): boolean {
-    return (this.isValidUsername =
-      this.registerForm.value.username.length >= 4);
+    return (this.isValidUsername = this.registerFormData.username.length >= 4);
   }
   validatePasswordAndConfirmPass(): boolean {
-    this.isValidPassword = this.registerForm.value.password.length >= 8;
+    this.isValidPassword = this.registerFormData.password.length >= 8;
     if (this.isValidPassword) {
       return (this.isValidConfirmPassword =
-        this.registerForm.value.confirmPassword ===
-        this.registerForm.value.password);
+        this.registerFormData.confirmPassword ===
+        this.registerFormData.password);
     }
     return this.isValidConfirmPassword;
   }
 
   validateBirthDate(): boolean {
     this.isValidDay =
-      this.registerForm.value.day.length <= 2 &&
-      this.registerForm.value.day.length > 0;
-    this.isValidMonth = this.registerForm.value.month.length > 0;
-    this.isValidYear = this.registerForm.value.year.length == 4;
+      this.registerFormData.day.length <= 2 &&
+      this.registerFormData.day.length > 0;
+    this.isValidMonth = this.registerFormData.month.length >= 4;
+    this.isValidYear = this.registerFormData.year.length == 4;
     return this.isValidDay && this.isValidMonth && this.isValidYear;
   }
 
   validateEmail(): boolean {
     //TODO: Add regex validation here or create service
-    return (this.isValidEmail = this.registerForm.value.email.length > 7);
+    return (this.isValidEmail = this.registerFormData.email.length > 7);
   }
 
   updateMonth(month: Event): void {
-    this.registerForm.value.month = (month.target as HTMLInputElement).value;
+    this.registerFormData.month = (month.target as HTMLInputElement).value;
   }
 
   validateUserInfo(): void {
-    this.validateUsername();
-    this.validatePasswordAndConfirmPass();
-    this.validateBirthDate();
-    this.validateEmail();
+    console.log(this.registerFormData);
     this.isValidUserInfo =
-      this.isValidUsername &&
-      this.isValidPassword &&
-      this.isValidConfirmPassword &&
-      this.isValidDay &&
-      this.isValidMonth &&
-      this.isValidYear &&
-      this.isValidEmail;
+      this.validateUsername() &&
+      this.validatePasswordAndConfirmPass() &&
+      this.validateBirthDate() &&
+      this.validateEmail();
   }
   onSubmit() {
     this.validateUserInfo();
     if (this.isValidUserInfo) {
-      this.registerForm.reset();
-      this.modalService.closeModal();
+      this.closeRegisterForm();
     }
   }
 
-  resetRegisterForm(): void {
-    this.registerForm.reset();
+  closeRegisterForm(): void {
     this.modalService.closeModal();
   }
 }

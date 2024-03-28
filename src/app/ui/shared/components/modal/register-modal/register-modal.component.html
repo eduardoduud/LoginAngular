@@ -6,11 +6,11 @@
     <div class="absolute end-2 top-2 cursor-pointer hover:bg-lBlack-700 rounded">
       <app-icon type="closeX"
                 svgClass="w-lIconLarger h-lIconLarger"
-                (click)="resetRegisterForm()">
+                (click)="closeRegisterForm()">
       </app-icon>
     </div>
   </div>
-  <form class="flex flex-col gap-y-spaceDefault"
+  <form class="flex flex-col gap-y-spaceBig"
         (ngSubmit)="onSubmit()"
         (keydown.enter)="onSubmit()">
     <login-app-input-field id="username"
@@ -60,6 +60,9 @@
           </option>
           <option *ngFor="let month of months" [value]="month">{{ month }}</option>
         </select>
+        <div *ngIf="!this.isValidMonth">
+          <span class="absolute whitespace-normal font-bold text-red-600">Field Month invalid</span>
+        </div>
       </div>
       <login-app-input-field id="year"
                              name="year"
