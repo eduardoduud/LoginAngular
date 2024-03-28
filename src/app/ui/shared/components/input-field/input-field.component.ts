@@ -13,6 +13,7 @@ export class InputFieldComponent {
   @Input() id = '';
   @Input() isErrorMessageVisible = false;
   @Input() label = '';
+  @Input() minLength = 0;
   @Input() maxLength = 50;
   @Input() name = '';
   @Input() placeHolder = '';
