@@ -11,31 +11,33 @@
     </div>
   </div>
   <form class="flex flex-col gap-y-spaceDefault"
-        [formGroup]="registerForm"
         (ngSubmit)="onSubmit()"
         (keydown.enter)="onSubmit()">
     <login-app-input-field id="username"
                            name="username"
                            label="Username"
                            type="text"
+                           [minLength]="4"
                            [isErrorMessageVisible]="!isValidUsername"
-                           [(value)]="registerForm.value.username">
+                           [(value)]="registerFormData.username">
     </login-app-input-field>
     <login-app-input-field class="form-control"
                            id="password"
                            name="password"
                            label="Password"
                            type="text"
+                           [minLength]="8"
                            [isErrorMessageVisible]="!isValidPassword"
-                           [(value)]="registerForm.value.password"
+                           [(value)]="registerFormData.password"
                            (valueChange)="validatePasswordAndConfirmPass()">
     </login-app-input-field>
     <login-app-input-field id="confirmPassword"
                            name="confirmPassword"
                            label="Password Confirmation"
                            type="text"
+                           [minLength]="8"
                            [isErrorMessageVisible]="!isValidConfirmPassword"
-                           [(value)]="registerForm.value.confirmPassword"
+                           [(value)]="registerFormData.confirmPassword"
                            (valueChange)="validatePasswordAndConfirmPass()">
     </login-app-input-field>
     <div class="flex flex-row gap-x-spaceBig items-center">
@@ -45,7 +47,7 @@
                              placeHolder="Day"
                              [maxLength]="2"
                              [isErrorMessageVisible]="!isValidDay"
-                             [(value)]="registerForm.value.day">
+                             [(value)]="registerFormData.day">
       </login-app-input-field>
       <div class="flex flex-col gap-y-spaceXSmall w-full">
         <select id="month"
@@ -65,7 +67,7 @@
                              placeHolder="Year"
                              [maxLength]="4"
                              [isErrorMessageVisible]="!isValidYear"
-                             [(value)]="registerForm.value.year">
+                             [(value)]="registerFormData.year">
       </login-app-input-field>
     </div>
     <login-app-input-field id="email"
@@ -73,7 +75,7 @@
                            label="E-mail"
                            type="email"
                            [isErrorMessageVisible]="!isValidEmail"
-                           [(value)]="registerForm.value.email">
+                           [(value)]="registerFormData.email">
     </login-app-input-field>
   </form>
   <div class="mt-spaceBig">
