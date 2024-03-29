@@ -1,4 +1,4 @@
-<div class="flex items-center bg-transparent"
+<div class="flex items-center bg-transparent relative"
      cdkOverlayOrigin #trigger="cdkOverlayOrigin"
      (click)="toggleOptionsVisibility()"
      (clickOutside)="reset()">
@@ -24,4 +24,7 @@
       </ng-container>
     </div>
   </ng-template>
+</div>
+<div *ngIf="isErrorMessageVisible">
+  <span class="absolute whitespace-normal font-bold text-red-600">Field {{fieldName}} invalid</span>
 </div>

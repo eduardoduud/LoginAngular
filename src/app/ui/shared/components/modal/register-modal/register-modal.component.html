@@ -14,7 +14,7 @@
         (ngSubmit)="onSubmit()"
         (keydown.enter)="onSubmit()">
     <login-app-input-field id="username"
-                           name="username"
+                           fieldName="username"
                            label="Username"
                            type="text"
                            [minLength]="4"
@@ -23,7 +23,7 @@
     </login-app-input-field>
     <login-app-input-field class="form-control"
                            id="password"
-                           name="password"
+                           fieldName="password"
                            label="Password"
                            type="text"
                            [minLength]="8"
@@ -32,7 +32,7 @@
                            (valueChange)="validatePasswordAndConfirmPass()">
     </login-app-input-field>
     <login-app-input-field id="confirmPassword"
-                           name="confirmPassword"
+                           fieldName="confirmPassword"
                            label="Password Confirmation"
                            type="text"
                            [minLength]="8"
@@ -42,7 +42,7 @@
     </login-app-input-field>
     <div class="flex flex-row gap-x-spaceBig items-center">
       <login-app-input-field id="day"
-                             name="day"
+                             fieldName="day"
                              type="number"
                              placeHolder="Day"
                              [maxLength]="2"
@@ -50,12 +50,14 @@
                              [(value)]="registerFormData.day">
       </login-app-input-field>
 
-      <login-app-dropdown [options]="months"
+      <login-app-dropdown fieldName="month"
+                          [options]="months"
+                          [isErrorMessageVisible]="!isValidMonth"
                           (selectedOptionChange)="registerFormData.month = $event">
       </login-app-dropdown>
 
       <login-app-input-field id="year"
-                             name="year"
+                             fieldName="year"
                              type="number"
                              placeHolder="Year"
                              [maxLength]="4"
@@ -64,7 +66,7 @@
       </login-app-input-field>
     </div>
     <login-app-input-field id="email"
-                           name="email"
+                           fieldName="email"
                            label="E-mail"
                            type="email"
                            [isErrorMessageVisible]="!isValidEmail"

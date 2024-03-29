@@ -13,14 +13,14 @@
         (ngSubmit)="onSubmit()"
         (keydown.enter)="onSubmit()">
     <login-app-input-field id="username"
-                           name="username"
+                           fieldName="username"
                            label="Username"
                            type="text"
                            [isErrorMessageVisible]="!isValidUsername"
                            [(value)]="loginForm.value.username">
     </login-app-input-field>
     <login-app-input-field id="password"
-                           name="password"
+                           fieldName="password"
                            label="Password"
                            type="password"
                            [isErrorMessageVisible]="!isValidPassword"

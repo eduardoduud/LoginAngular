@@ -5,7 +5,7 @@ import {
   SingleStateMediator,
   SingleStateType
 } from '../../mediators/single-state.mediator';
-import { NgClass, NgForOf } from '@angular/common';
+import { NgClass, NgForOf, NgIf } from '@angular/common';
 import { ClickOutsideDirective } from '../../directives/click-outside.directive';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SyncWidthDirective } from '../../directives/get-width.directive';
@@ -22,17 +22,19 @@ import { SyncWidthDirective } from '../../directives/get-width.directive';
     ClickOutsideDirective,
     ReactiveFormsModule,
     NgClass,
-    SyncWidthDirective
+    SyncWidthDirective,
+    NgIf
   ]
 })
 export class DropdownComponent {
-  @Input() options: Array<string> = [];
-
+  @Input() options?: Array<string>;
+  @Input() fieldName?: string;
+  @Input() isErrorMessageVisible?: boolean;
   @Output() selectedOptionChange = new EventEmitter<string>();
 
   protected dropdownWidth?: number;
 
-  selectedOption: string = '';
+  selectedOption?: string;
   isVisible = false;
 
   constructor(private singleStateMediator: SingleStateMediator) {}

@@ -15,7 +15,7 @@ export class InputFieldComponent {
   @Input() label = '';
   @Input() minLength = 0;
   @Input() maxLength = 50;
-  @Input() name = '';
+  @Input() fieldName = '';
   @Input() placeHolder = '';
   @Input() required = false;
   @Input() readonly = false;
