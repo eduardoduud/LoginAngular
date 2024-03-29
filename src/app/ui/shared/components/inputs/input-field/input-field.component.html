@@ -1,5 +1,9 @@
 <div class="flex flex-col gap-y-spaceXSmall">
-  <label class="flex font-bold text-lWhite-300" [for]="name">{{ label }}</label>
+  <label class="flex font-bold text-lWhite-300"
+         [ngClass]="{'hidden': !label}"
+         [for]="name">
+    {{ label }}
+  </label>
   <div class="w-full relative">
     <input class="flex w-full items-center rounded border border-lGrey-200 bg-transparent
            p-small text-lWhite-200 hover:shadow-lHover focus:border-lGreen-400 focus:shadow-lBorder focus:outline-none"

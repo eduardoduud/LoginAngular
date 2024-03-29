@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { IconComponent } from '../../icon/icon.component';
+import { IconComponent } from '../../../icon/icon.component';
 import { NgClass, NgIf, NgTemplateOutlet } from '@angular/common';
 
 @Component({

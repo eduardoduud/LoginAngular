@@ -3,9 +3,10 @@ import { CommonModule } from '@angular/common';
 import { ButtonComponent } from '../../button/button.component';
 import { ModalService } from '../../../../../services/modal.service';
 import { IconComponent } from '../../../icon/icon.component';
-import { InputFieldComponent } from '../../input-field/input-field.component';
+import { InputFieldComponent } from '../../inputs/input-field/input-field.component';
 import { RegisterFormModel } from '../../../../../model/register-form.model';
 import { FormsModule } from '@angular/forms';
+import { DropdownComponent } from '../../dropdown/dropdown.component';
 
 @Component({
   selector: 'login-app-register-modal',
@@ -16,7 +17,8 @@ import { FormsModule } from '@angular/forms';
     ButtonComponent,
     IconComponent,
     InputFieldComponent,
-    FormsModule
+    FormsModule,
+    DropdownComponent
   ]
 })
 export class RegisterModalComponent implements OnInit {

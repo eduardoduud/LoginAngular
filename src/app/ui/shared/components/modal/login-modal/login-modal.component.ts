@@ -10,7 +10,7 @@ import {
 } from '@angular/forms';
 import { RegisterModalComponent } from '../register-modal/register-modal.component';
 import { NgIf } from '@angular/common';
-import { InputFieldComponent } from '../../input-field/input-field.component';
+import { InputFieldComponent } from '../../inputs/input-field/input-field.component';
 
 @Component({
   selector: 'login-app-login-modal',

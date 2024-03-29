@@ -49,21 +49,11 @@
                              [isErrorMessageVisible]="!isValidDay"
                              [(value)]="registerFormData.day">
       </login-app-input-field>
-      <div class="flex flex-col gap-y-spaceXSmall w-full">
-        <select id="month"
-                name="month"
-                class="flex items-center rounded border border-lGrey-200 bg-lGrey-900
-                p-small text-lWhite-200 hover:shadow-lHover focus:border-lGreen-400 focus:shadow-lBorder focus:outline-none"
-                (input)="updateMonth($event)">
-          <option value="" disabled selected hidden>
-            <span>Month</span>
-          </option>
-          <option *ngFor="let month of months" [value]="month">{{ month }}</option>
-        </select>
-        <div *ngIf="!this.isValidMonth">
-          <span class="absolute whitespace-normal font-bold text-red-600">Field Month invalid</span>
-        </div>
-      </div>
+
+      <login-app-dropdown [options]="months"
+                          (selectedOptionChange)="registerFormData.month = $event">
+      </login-app-dropdown>
+
       <login-app-input-field id="year"
                              name="year"
                              type="number"
