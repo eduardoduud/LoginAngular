@@ -44,7 +44,7 @@
       <login-app-input-field id="day"
                              fieldName="day"
                              type="number"
-                             placeHolder="Day"
+                             placeholder="Day"
                              [maxLength]="2"
                              [isErrorMessageVisible]="!isValidDay"
                              [(value)]="registerFormData.day">
@@ -52,6 +52,7 @@
 
       <login-app-dropdown fieldName="month"
                           [options]="months"
+                          [placeholder]="'Month'"
                           [isErrorMessageVisible]="!isValidMonth"
                           (selectedOptionChange)="registerFormData.month = $event">
       </login-app-dropdown>
@@ -59,7 +60,7 @@
       <login-app-input-field id="year"
                              fieldName="year"
                              type="number"
-                             placeHolder="Year"
+                             placeholder="Year"
                              [maxLength]="4"
                              [isErrorMessageVisible]="!isValidYear"
                              [(value)]="registerFormData.year">

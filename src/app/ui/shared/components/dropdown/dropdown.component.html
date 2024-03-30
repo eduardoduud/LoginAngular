@@ -1,14 +1,20 @@
-<div class="flex items-center bg-transparent relative"
+<div class="flex items-center bg-transparent"
      cdkOverlayOrigin #trigger="cdkOverlayOrigin"
      (click)="toggleOptionsVisibility()"
      (clickOutside)="reset()">
-  <input [value]="selectedOption || 'Select a Month'"
-         readonly
-         id="sourceElementWidth"
-         class="flex items-center rounded border border-lGrey-200 bg-lGrey-900
-         p-small text-lWhite-200 hover:shadow-lHover focus:border-lGreen-400 focus:shadow-lBorder focus:outline-none
-         cursor-pointer"
-  />
+  <div class="flex flex-row relative">
+    <input [value]="selectedOption"
+           [placeholder]="placeholder"
+           readonly
+           id="sourceElementWidth"
+           class="flex items-center rounded border border-lGrey-200 bg-lGrey-900
+           p-small text-lWhite-200 hover:shadow-lHover focus:border-lGreen-400 focus:shadow-lBorder focus:outline-none
+           cursor-pointer"
+    />
+    <app-icon svgClass="cursor-pointer absolute end-2 top-spaceDefault w-lIconLarge h-lIconLarge text-lGreen-400"
+              type="arrow-down">
+    </app-icon>
+  </div>
   <ng-template cdkConnectedOverlay
                [cdkConnectedOverlayOrigin]="trigger"
                [cdkConnectedOverlayOpen]="isVisible">
@@ -25,5 +31,5 @@
   </ng-template>
 </div>
 <div *ngIf="isErrorMessageVisible">
-  <span class="absolute whitespace-normal font-bold text-red-600">Field {{fieldName}} invalid</span>
+  <span class="absolute whitespace-normal font-bold text-red-600">Field {{ fieldName }} invalid</span>
 </div>
