@@ -6,11 +6,11 @@ import {
   FormsModule,
   FormBuilder,
   FormGroup,
-  Validators,
   ReactiveFormsModule
 } from '@angular/forms';
 import { RegisterModalComponent } from '../register-modal/register-modal.component';
 import { NgIf } from '@angular/common';
+import { InputFieldComponent } from '../../inputs/input-field/input-field.component';
 
 @Component({
   selector: 'login-app-login-modal',
@@ -21,14 +21,17 @@ import { NgIf } from '@angular/common';
     FormsModule,
     RegisterModalComponent,
     ReactiveFormsModule,
-    NgIf
+    NgIf,
+    InputFieldComponent
   ],
   templateUrl: './login-modal.component.html'
 })
 export class LoginModalComponent implements OnInit {
   protected readonly registerModalComponent = RegisterModalComponent;
   protected loginForm!: FormGroup;
-  hidePassword: boolean = true;
+  protected isValidUsername = true;
+  protected isValidPassword = true;
+
   constructor(
     public modalService: ModalService,
     private formBuilder: FormBuilder
@@ -36,22 +39,33 @@ export class LoginModalComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
-      usuario: ['', Validators.minLength(4)],
-      senha: ['', Validators.minLength(8)]
+      username: [''],
+      password: ['']
     });
     this.modalService.getModalSubscription().subscribe(modalRef => {
       modalRef.afterClosed().subscribe(() => {});
     });
   }
 
-  closeLoginAndOpenRegister(): void {
-    this.modalService.closeModal();
-    this.modalService
-      .openModal(this.registerModalComponent)
-      .subscribe(() => {});
+  validateUsername(): void {
+    this.isValidUsername = this.loginForm.value.username.length >= 4;
   }
 
-  togglePasswordVisibility(): void {
-    this.hidePassword = !this.hidePassword;
+  validatePassword(): void {
+    this.isValidPassword = this.loginForm.value.password.length >= 8;
+  }
+
+  onSubmit() {
+    this.validateUsername();
+    this.validatePassword();
+    if (this.isValidUsername && this.isValidPassword) {
+      this.loginForm.reset();
+      this.modalService.closeModal();
+    }
+  }
+
+  closeLoginAndOpenRegister(): void {
+    this.modalService.closeModal();
+    this.modalService.openModal(this.registerModalComponent);
   }
 }
