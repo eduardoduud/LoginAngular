@@ -1,11 +1,11 @@
-<div class="flex flex-col p-biggest bg-lGrey-900 gap-y-spaceBig justify-center">
+<div class="flex flex-col p-spaceBiggest bg-lGrey-900 gap-y-spaceBig justify-center">
   <div class="flex flex-row justify-center">
     <span class="font-loginSans font-bold text-lWhite-300 text-3xl">
       Register
     </span>
-    <div class="absolute end-2 top-2 cursor-pointer hover:bg-lBlack-700 rounded">
+    <div class="absolute end-spaceSmaller top-spaceSmaller cursor-pointer hover:bg-lBlack-700 rounded">
       <app-icon type="closeX"
-                svgClass="w-lIconLarger h-lIconLarger"
+                svgClass="w-spaceBig h-spaceBig"
                 (click)="closeRegisterForm()">
       </app-icon>
     </div>
@@ -40,11 +40,11 @@
                            [(value)]="registerFormData.confirmPassword"
                            (valueChange)="validatePasswordAndConfirmPass()">
     </login-app-input-field>
-    <div class="flex flex-row gap-x-spaceBig items-center">
+    <div class="flex flex-row gap-x-spaceBig items-center mt-spaceSmall">
       <login-app-input-field id="day"
                              fieldName="day"
                              type="number"
-                             placeHolder="Day"
+                             placeholder="Day"
                              [maxLength]="2"
                              [isErrorMessageVisible]="!isValidDay"
                              [(value)]="registerFormData.day">
@@ -52,6 +52,7 @@
 
       <login-app-dropdown fieldName="month"
                           [options]="months"
+                          [placeholder]="'Month'"
                           [isErrorMessageVisible]="!isValidMonth"
                           (selectedOptionChange)="registerFormData.month = $event">
       </login-app-dropdown>
@@ -59,7 +60,7 @@
       <login-app-input-field id="year"
                              fieldName="year"
                              type="number"
-                             placeHolder="Year"
+                             placeholder="Year"
                              [maxLength]="4"
                              [isErrorMessageVisible]="!isValidYear"
                              [(value)]="registerFormData.year">

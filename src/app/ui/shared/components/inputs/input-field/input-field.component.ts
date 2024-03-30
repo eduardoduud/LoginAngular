@@ -16,7 +16,7 @@ export class InputFieldComponent {
   @Input() minLength = 0;
   @Input() maxLength = 50;
   @Input() fieldName = '';
-  @Input() placeHolder = '';
+  @Input() placeholder = '';
   @Input() required = false;
   @Input() readonly = false;
   @Input() type = '';

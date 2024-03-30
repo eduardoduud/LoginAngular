@@ -9,6 +9,7 @@ import { NgClass, NgForOf, NgIf } from '@angular/common';
 import { ClickOutsideDirective } from '../../directives/click-outside.directive';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SyncWidthDirective } from '../../directives/sync-width.directive';
+import { IconComponent } from '../../icon/icon.component';
 
 @Component({
   selector: 'login-app-dropdown',
@@ -23,18 +24,20 @@ import { SyncWidthDirective } from '../../directives/sync-width.directive';
     ReactiveFormsModule,
     NgClass,
     SyncWidthDirective,
-    NgIf
+    NgIf,
+    IconComponent
   ]
 })
 export class DropdownComponent {
   @Input() options?: Array<string>;
   @Input() fieldName?: string;
   @Input() isErrorMessageVisible?: boolean;
+  @Input() placeholder = '';
   @Output() selectedOptionChange = new EventEmitter<string>();
 
   protected dropdownWidth?: number;
 
-  selectedOption?: string;
+  selectedOption: string = '';
   isVisible = false;
 
   constructor(private singleStateMediator: SingleStateMediator) {}
