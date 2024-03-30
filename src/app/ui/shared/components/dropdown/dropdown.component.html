@@ -8,10 +8,10 @@
            readonly
            id="sourceElementWidth"
            class="flex items-center rounded border border-lGrey-200 bg-lGrey-900
-           p-small text-lWhite-200 hover:shadow-lHover focus:border-lGreen-400 focus:shadow-lBorder focus:outline-none
+           p-spaceSmaller text-lWhite-200 hover:shadow-lHover focus:border-lGreen-400 focus:shadow-lBorder focus:outline-none
            cursor-pointer"
     />
-    <app-icon svgClass="cursor-pointer absolute end-2 top-spaceDefault w-lIconLarge h-lIconLarge text-lGreen-400"
+    <app-icon svgClass="cursor-pointer absolute end-spaceSmaller top-spaceSmall w-spaceBig h-spaceBig text-lGreen-400"
               type="arrow-down">
     </app-icon>
   </div>
@@ -22,7 +22,7 @@
          syncWidth
          [sourceElementId]="'sourceElementWidth'">
       <ng-container *ngFor="let option of options">
-        <span class="flex px-small cursor-pointer text-default text-lWhite-200 hover:bg-blue-700"
+        <span class="flex px-spaceSmall cursor-pointer text-default text-lWhite-200 hover:bg-blue-700"
               (click)="updateSelectedOption(option)">
           {{ option }}
         </span>

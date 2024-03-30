@@ -6,7 +6,7 @@
   </label>
   <div class="w-full relative">
     <input class="flex w-full items-center rounded border border-lGrey-200 bg-transparent
-           p-small text-lWhite-200 hover:shadow-lHover focus:border-lGreen-400 focus:shadow-lBorder focus:outline-none"
+           p-spaceSmaller text-lWhite-200 hover:shadow-lHover focus:border-lGreen-400 focus:shadow-lBorder focus:outline-none"
            [id]="id"
            [name]="fieldName"
            [placeholder]="placeholder"
@@ -19,16 +19,16 @@
            type="{{ type === 'password' ? (hidePassword ? 'password' : 'text'): type }}"
            required="{{required}}" />
     <button *ngIf="type === 'password'"
-            class="absolute end-2 top-spaceTiny"
+            class="absolute end-spaceSmaller top-spaceSmall"
             type="button"
             (click)="togglePasswordVisibility()">
       <ng-container *ngIf="hidePassword">
-        <app-icon svgClass="w-lIconDefault h-lIconDefault"
+        <app-icon svgClass="w-spaceDefault h-spaceDefault"
                   type="eyeOpen">
         </app-icon>
       </ng-container>
       <ng-container *ngIf="!hidePassword">
-        <app-icon svgClass="w-lIconDefault h-lIconDefault"
+        <app-icon svgClass="w-spaceDefault h-spaceDefault"
                   type="eyeClosed">
         </app-icon>
       </ng-container>

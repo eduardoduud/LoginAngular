@@ -10,6 +10,15 @@ module.exports = {
       semiBold: '500',
       bold: '700'
     },
+    spacing: {
+      spaceXSmall: '.25rem' /*4px*/,
+      spaceSmaller: '.5rem' /*8px*/,
+      spaceSmall: '0.75rem'/*12px*/,
+      spaceDefault: '1rem' /*16px*/,
+      spaceBig: '1.25rem' /*20px*/,
+      spaceBigger: '1.5rem' /*24px*/,
+      spaceBiggest: '2rem' /*32px*/
+    },
     extend: {
       backgroundImage: {
         'login-image': '<URL-HERE>'
@@ -43,40 +52,9 @@ module.exports = {
           900: '#18181b'
         }
       },
-      padding: {
-        xSmall: '.25rem' /*4px*/,
-        small: '.625rem' /*10px*/,
-        default: '1rem' /*16px*/,
-        big: '1.25rem' /*20px*/,
-        bigger: '1.5rem' /*24px*/,
-        biggest: '2rem' /*32px*/
-      },
-      spacing: {
-        spaceXSmall: '.25rem' /*4px*/,
-        spaceSmall: '.5rem' /*8px*/,
-        spaceTiny: '.9rem' /*8px*/,
-        spaceDefault: '1rem' /*16px*/,
-        spaceBig: '1.25rem' /*20px*/,
-        spaceBigger: '1.5rem' /*24px*/,
-        spaceBiggest: '2rem' /*32px*/
-      },
       boxShadow: {
         lBorder: 'inset 0px 0px 0px 0.5px rgba(33, 192, 99, 1), 0px 0px 0px 2px rgba(33, 192, 99, 1)',
         lHover: 'inset 0px 0px 0px 2px rgba(103, 103, 107, 1)'
-      },
-      height: {
-        lIconSmall: '0.75rem'/*12px*/,
-        lIconDefault: '1rem'/*16px*/,
-        lIconLarge: '1.125rem'/*18px*/
-      },
-      width: {
-        lIconSmall: '0.75rem'/*12px*/,
-        lIconDefault: '1rem'/*16px*/,
-        lIconLarge: '1.125rem'/*18px*/,
-        teste: '290px'
-      },
-      maxWidth: {
-        lMaxHeaderW: `calc(100vw / 4)`
       }
     }
   },
