@@ -8,7 +8,7 @@ import {
 import { NgClass, NgForOf, NgIf } from '@angular/common';
 import { ClickOutsideDirective } from '../../directives/click-outside.directive';
 import { ReactiveFormsModule } from '@angular/forms';
-import { SyncWidthDirective } from '../../directives/get-width.directive';
+import { SyncWidthDirective } from '../../directives/sync-width.directive';
 
 @Component({
   selector: 'login-app-dropdown',
