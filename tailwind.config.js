@@ -19,6 +19,9 @@ module.exports = {
       spaceBigger: '1.5rem' /*24px*/,
       spaceBiggest: '2rem' /*32px*/
     },
+    maxWidth: {
+      registerModal: '28.125rem' /*450px*/
+    },
     extend: {
       backgroundImage: {
         'login-image': '<URL-HERE>'
@@ -54,6 +57,7 @@ module.exports = {
       },
       boxShadow: {
         lBorder: 'inset 0px 0px 0px 0.5px rgba(33, 192, 99, 1), 0px 0px 0px 2px rgba(33, 192, 99, 1)',
+        innerDefault: 'inset 0 0 4px 0 rgba(33, 192, 99, 1), 0px 0px 0px 2px rgba(33, 192, 99, 1)',
         lHover: 'inset 0px 0px 0px 2px rgba(103, 103, 107, 1)'
       }
     }
