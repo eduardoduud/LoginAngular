@@ -11,6 +11,8 @@ module.exports = {
       bold: '700'
     },
     spacing: {
+      spaceUltraSmaller: '.062rem' /*1px*/,
+      spaceUltraSmall: '.125rem' /*2px*/,
       spaceXSmall: '.25rem' /*4px*/,
       spaceSmaller: '.5rem' /*8px*/,
       spaceSmall: '0.75rem'/*12px*/,
@@ -29,6 +31,15 @@ module.exports = {
       colors: {
         primaryButton: '',
         secondaryButton: '',
+        dark: {
+          200: '#2f3338',
+          400: '#191b1e',
+          600: '#0E1113'
+        },
+        customOrange: {
+          100: '#c04300',
+          200: '#FD4C00',
+        },
         lWhite: {
           200: '#F4F9FD',
           300: '#f7f7f8',

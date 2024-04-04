@@ -1,0 +1,24 @@
+<div class="flex flex-row px-spaceDefault py-spaceSmall shadow shadow-lGreen-400 bg-dark-400 items-center justify-center">
+  <div class="flex items-center justify-start w-full">
+    <app-icon [svgClass]="'h-spaceDefault w-spaceDefault'"
+              type="logo">
+    </app-icon>
+  </div>
+  <div class="flex items-center justify-center w-full">
+    <span class="font-bold text-customOrange-200">WELCOME</span>
+  </div>
+  <div class="flex flex-row gap-x-spaceBig justify-end w-full">
+    <login-app-button [design]="'primary'"
+                      [text]="'Sign In'"
+                      [icon]="'login'"
+                      [isIconLeft]="true"
+                      (clicked)="openModal(loginModalComponent)">
+    </login-app-button>
+    <login-app-button [design]="'primary'"
+                      [text]="'Sign Up'"
+                      [icon]="'reload'"
+                      [isIconRight]="true"
+                      (clicked)="openModal(registerModalComponent)">
+    </login-app-button>
+  </div>
+</div>

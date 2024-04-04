@@ -2,12 +2,12 @@
   <button (click)="onClicked($event)"
           [disabled]="isDisabled"
           [type]="type"
-          class="flex flex-row place-content-center items-center w-full py-spaceXSmall px-spaceSmall gap-x-spaceSmaller rounded active:bg-lBlue-900"
+          class="group flex flex-row place-content-center items-center w-full py-spaceXSmall px-spaceSmall gap-x-spaceSmaller active:bg-lBlue-900"
           [ngClass]="{'cursor-not-allowed disabled:text-lWhite-200 disabled:bg-lBlack-700': isDisabled,
-                       'bg-lBlue-800 hover:bg-lBlue-600': isPrimary,
-                       'bg-lGreen-400 hover:bg-lGreen-500': isSecondary,
-                       'bg-lWhite-200 hover:bg-lWhite-400': isTertiary,
-                       'bg-transparent hover:bg-lGrey-200': isBackgroundTransparent}">
+                       'bg-lBlue-800 hover:bg-lBlue-600rounded': isPrimary,
+                       'bg-lGreen-400 hover:bg-lGreen-500 rounded': isSecondary,
+                       'bg-lWhite-200 hover:bg-customOrange-100': isTertiary,
+                       'bg-transparent': isBackgroundTransparent}">
     <div *ngIf="icon && isIconLeft"
          [ngClass]="{'text-lWhite-200': isPrimary,
                      'text-lBlue-800': isSecondary || isTertiary}">
@@ -17,8 +17,8 @@
     </div>
     <div *ngIf="text"
          [ngClass]="{'text-white font-bold': isPrimary,
-                     'text-lBlue-800 font-semiBold': isSecondary,
-                     'text-lBlue-800 font-bold': isTertiary}">
+                     'text-blue font-semiBold': isSecondary,
+                     'text-black font-semiBold group-hover:text-lWhite-200': isTertiary}">
       <span class="font-loginSans {{ textSize }}">{{ text }}</span>
     </div>
     <div *ngIf="icon && isIconRight"
